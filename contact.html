@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Dagii Scrubs - Meru Town, Kenya</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Dagii Scrubs</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active btn btn-warning ms-lg-3" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container my-5 py-3 contact-form-section">
+        <h1 class="text-center section-title display-4 mb-5" style="background-color: #003366; color: white; font-weight: bold;">
+    Get In Touch With Dagii Scubs
+</h1>
+        
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <h3 class="fw-bold mb-4 text-primary">Send Us a Message</h3>
+                <form class="needs-validation" id="contactForm" novalidate>
+                    
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                        <div class="invalid-feedback">
+                            Please enter your full name.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid email address.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number (Optional)</label>
+                        <input type="tel" class="form-control" id="phone">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subject" required>
+                        <div class="invalid-feedback">
+                            Please enter a subject for your message.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="4" required></textarea>
+                        <div class="invalid-feedback">
+                            Please enter your message.
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg mt-3">Send Message</button>
+                </form>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+                <h3 class="fw-bold mb-4 text-primary">Our Details & Location</h3>
+                <div class="contact-info mb-4">
+                    <p class="lead"><i class="fas fa-map-marker-alt me-2 text-warning"></i> Physical Location: Meru Town CBD, Meru County, Kenya</p>
+                    <p class="lead"><i class="fas fa-phone me-2 text-warning"></i> Call Us: +254 790 640 609</p>
+                    <p class="lead"><i class="fas fa-envelope me-2 text-warning"></i> Email: info@dagiiscrubs.co.ke</p>
+                    <p class="lead"><i class="fas fa-clock me-2 text-warning"></i> Hours: Mon-Sat, 8:30 AM - 5:00 PM</p>
+                </div>
+
+                <div class="map-container rounded">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.948071528846!2d37.65004781458425!3d0.04412849991368471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x17801d86c20e60c5%3A0x7e7b0a4b6b8a3a7b!2sMeru%20Town!5e0!3m2!1sen!2ske!4v1628499000000!5m2!1sen!2ske" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Dagii Scrubs</h5>
+                    <p>Quality Scrubs for Dedicated Healthcare Heroes in Meru and beyond.</p>
+                    <p class="contact-info"><i class="fas fa-map-marker-alt"></i> Meru Town, Kenya</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="contact.html">Get in Touch</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Connect With Us</h5>
+                    <p class="contact-info"><i class="fas fa-phone"></i> +254 790 640 609</p>
+                    <p class="contact-info"><i class="fas fa-envelope"></i> info@dagiiscrubs.co.ke</p>
+                    <div class="mt-3">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <a href="https://wa.me/254790640609?text=Hello%20from%20your%20website!" target="_blank">
+                        Chat with us on WhatsApp </a>
+                </div>
+            </div>
+            <div class="row border-top pt-3 mt-3">
+                <div class="col text-center">
+                    <p class="mb-0 text-muted">© 2025 Dagii Scrubs. All Rights Reserved. | Designed by JUlls Digital</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
