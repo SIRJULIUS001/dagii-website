@@ -29,38 +29,39 @@
 
         /* Navbar Styling */
         .navbar {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         .navbar-brand { font-weight: 800; color: var(--primary-blue) !important; letter-spacing: -0.5px; }
 
-        /* Hero Section */
+        /* Hero Section with AI-Style Medical Background */
         .hero-section {
             position: relative;
-            background: linear-gradient(rgba(0, 51, 102, 0.75), rgba(0, 51, 102, 0.75)), url('hero-bg.jpg'); 
+            background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.85)), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=2000'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            padding: 180px 0;
+            padding: 160px 0;
             color: white;
         }
 
         /* Animation Keyframes */
         @keyframes floating {
             0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(1deg); }
+            50% { transform: translateY(-15px) rotate(1.5deg); }
             100% { transform: translateY(0px) rotate(0deg); }
         }
 
         /* Pro Floating Feature Cards */
         .feature-card {
             border: none;
-            border-radius: 20px;
-            transition: all 0.4s ease-in-out;
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
             animation: floating 4s ease-in-out infinite;
             background: white;
+            overflow: hidden;
         }
         .col-md-4:nth-child(1) .feature-card { animation-delay: 0s; }
         .col-md-4:nth-child(2) .feature-card { animation-delay: 0.5s; }
@@ -68,7 +69,7 @@
 
         .feature-card:hover {
             animation-play-state: paused;
-            transform: scale(1.05) translateY(-10px);
+            transform: scale(1.03) translateY(-10px);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
 
@@ -77,34 +78,33 @@
 
         /* Color Swatch Styling */
         .color-swatch {
-            width: 50px; height: 50px;
+            width: 48px; height: 48px;
             border-radius: 50%; cursor: pointer;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 3px solid white; outline: 1px solid rgba(0,0,0,0.1);
         }
-        .color-swatch:hover { transform: scale(1.2) rotate(15deg); outline: 2px solid var(--accent-yellow); z-index: 2; }
+        .color-swatch:hover { transform: scale(1.25); outline: 2px solid var(--accent-yellow); z-index: 2; }
 
         /* Floating UI Elements */
         .whatsapp-float {
             position: fixed;
             bottom: 30px; right: 30px;
             background: #25d366; color: white;
-            padding: 12px 24px; border-radius: 50px;
-            display: flex; align-items: center; gap: 10px;
-            text-decoration: none; font-weight: 600;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            padding: 14px 28px; border-radius: 50px;
+            display: flex; align-items: center; gap: 12px;
+            text-decoration: none; font-weight: 700;
+            box-shadow: 0 12px 24px rgba(37, 211, 102, 0.3);
             z-index: 1000; transition: 0.3s;
         }
-        .whatsapp-float:hover { transform: scale(1.1); color: white; }
+        .whatsapp-float:hover { transform: translateY(-5px) scale(1.05); color: white; box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4); }
 
         /* Professional Footer Style */
         .social-icon {
-            width: 45px; height: 45px;
+            width: 48px; height: 48px;
             background: rgba(255, 255, 255, 0.1);
             display: inline-flex; align-items: center; justify-content: center;
-            border-radius: 50%; color: white; margin-right: 10px;
-            font-size: 1.2rem; transition: all 0.3s;
-            animation: floating 4s ease-in-out infinite;
+            border-radius: 50%; color: white; margin-right: 12px;
+            font-size: 1.3rem; transition: all 0.3s ease;
             text-decoration: none;
         }
         .social-icon:hover { background: var(--accent-yellow); color: var(--primary-blue); transform: translateY(-5px); }
@@ -112,7 +112,16 @@
         .btn-warning {
             background-color: var(--accent-yellow);
             border: none; font-weight: 700;
-            padding: 14px 32px; border-radius: 10px;
+            padding: 16px 36px; border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .btn-warning:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3); }
+
+        /* Embroidery Image Layout */
+        .img-overlay-card {
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 8px solid white;
         }
     </style>
 </head>
@@ -126,10 +135,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">Our Story</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3" href="services.html">Gallery</a></li>
-                    <li class="nav-item"><button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#sizeGuideModal">Size Guide</button></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="about.html">Our Story</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold px-lg-3" href="services.html">Gallery</a></li>
+                    <li class="nav-item"><button class="btn btn-warning px-4 shadow-sm" data-bs-toggle="modal" data-bs-target="#sizeGuideModal">Size Guide</button></li>
                 </ul>
             </div>
         </div>
@@ -137,34 +146,34 @@
 
     <header class="hero-section text-center">
         <div class="container">
-            <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold">PREMIUM MEDICAL APPAREL</span>
+            <span class="badge bg-warning text-dark mb-3 px-4 py-2 rounded-pill fw-bold shadow-sm">PREMIUM MEDICAL APPAREL</span>
             <h1 class="display-2 fw-bolder mb-4">Built for the <br><span class="text-warning">Healthcare Hero</span></h1>
-            <p class="lead mb-5 opacity-90 mx-auto" style="max-width: 600px;">Tailored with precision in Meru. Durable enough for the shift, stylish enough for the world.</p>
+            <p class="lead mb-5 opacity-90 mx-auto" style="max-width: 650px; font-weight: 400;">The standard in clinical excellence. Tailored with precision in Meru for durability, stretch, and a modern aesthetic.</p>
             <div class="d-flex justify-content-center gap-3">
-                <a href="#shop" class="btn btn-warning btn-lg shadow">Explore Collection</a>
-                <a href="contact.html" class="btn btn-outline-light btn-lg px-4">Get a Quote</a>
+                <a href="#shop" class="btn btn-warning btn-lg shadow-lg">Explore Collection</a>
+                <a href="contact.html" class="btn btn-outline-light btn-lg px-5" style="border-radius: 12px;">Get a Quote</a>
             </div>
         </div>
     </header>
 
-    <section class="stats-bar">
+    <section class="stats-bar shadow-sm">
         <div class="container text-center">
             <div class="row g-4">
                 <div class="col-6 col-md-3">
-                    <h2 class="fw-bold text-warning">500+</h2>
-                    <p class="small mb-0 opacity-75">Heroes Served</p>
+                    <h2 class="fw-bold text-warning display-6">500+</h2>
+                    <p class="small mb-0 text-uppercase tracking-wider opacity-75">Heroes Served</p>
                 </div>
                 <div class="col-6 col-md-3">
-                    <h2 class="fw-bold text-warning">15+</h2>
-                    <p class="small mb-0 opacity-75">Vibrant Colors</p>
+                    <h2 class="fw-bold text-warning display-6">15+</h2>
+                    <p class="small mb-0 text-uppercase tracking-wider opacity-75">Vibrant Colors</p>
                 </div>
                 <div class="col-6 col-md-3">
-                    <h2 class="fw-bold text-warning">24hr</h2>
-                    <p class="small mb-0 opacity-75">Meru Delivery</p>
+                    <h2 class="fw-bold text-warning display-6">24hr</h2>
+                    <p class="small mb-0 text-uppercase tracking-wider opacity-75">Meru Delivery</p>
                 </div>
                 <div class="col-6 col-md-3">
-                    <h2 class="fw-bold text-warning">100%</h2>
-                    <p class="small mb-0 opacity-75">Quality Fabric</p>
+                    <h2 class="fw-bold text-warning display-6">100%</h2>
+                    <p class="small mb-0 text-uppercase tracking-wider opacity-75">Quality Fabric</p>
                 </div>
             </div>
         </div>
@@ -172,34 +181,34 @@
 
     <section id="features" class="container py-5 mt-5">
         <div class="text-center mb-5">
-            <h2 class="fw-bold">Why Medics Choose Us</h2>
-            <div class="mx-auto bg-warning" style="height: 4px; width: 60px;"></div>
+            <h2 class="fw-bold display-5">Why Medics Choose Us</h2>
+            <div class="mx-auto bg-warning mt-2" style="height: 5px; width: 80px; border-radius: 10px;"></div>
         </div>
         <div class="row g-4">
             <div class="col-md-4">
-                <div class="card h-100 feature-card p-3 text-center">
-                    <img src="stretching.png" class="card-img-top rounded mb-3" alt="Comfort">
-                    <div class="card-body">
+                <div class="card h-100 feature-card p-3">
+                    <img src="https://images.unsplash.com/photo-1584982723934-896bca717262?auto=format&fit=crop&q=80&w=800" class="card-img-top rounded-4 mb-3" alt="Comfort" style="height: 240px; object-fit: cover;">
+                    <div class="card-body text-center">
                         <h5 class="fw-bold text-primary">All-Day Comfort</h5>
-                        <p class="text-muted small">Breathable fabrics that move with you through 12-hour shifts.</p>
+                        <p class="text-muted small">Breathable fabrics that move with you through grueling 12-hour shifts.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card h-100 feature-card p-3 text-center">
-                    <img src="stitching.png" class="card-img-top rounded mb-3" alt="Durability">
-                    <div class="card-body">
+                <div class="card h-100 feature-card p-3">
+                    <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=80&w=800" class="card-img-top rounded-4 mb-3" alt="Durability" style="height: 240px; object-fit: cover;">
+                    <div class="card-body text-center">
                         <h5 class="fw-bold text-primary">Built to Last</h5>
-                        <p class="text-muted small">Reinforced stitching that survives industrial washing.</p>
+                        <p class="text-muted small">Reinforced industrial-grade stitching that survives repetitive washing.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card h-100 feature-card p-3 text-center">
-                    <img src="models.png" class="card-img-top rounded mb-3" alt="Style">
-                    <div class="card-body">
+                <div class="card h-100 feature-card p-3">
+                    <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800" class="card-img-top rounded-4 mb-3" alt="Style" style="height: 240px; object-fit: cover;">
+                    <div class="card-body text-center">
                         <h5 class="fw-bold text-primary">Modern Fit</h5>
-                        <p class="text-muted small">Tailored cuts that look professional and feel contemporary.</p>
+                        <p class="text-muted small">Tailored, athletic cuts that look professional and feel contemporary.</p>
                     </div>
                 </div>
             </div>
@@ -207,12 +216,12 @@
     </section>
 
     <section class="bg-light py-5 border-top border-bottom">
-        <div class="container text-center">
-            <h3 class="fw-bold mb-5">Technical Performance</h3>
+        <div class="container text-center py-4">
+            <h3 class="fw-bold mb-5 display-6">Technical Performance</h3>
             <div class="row g-4">
-                <div class="col-md-4"><i class="fas fa-arrows-alt fa-3x text-primary mb-3"></i><h6>4-Way Stretch</h6><p class="text-muted small px-3">Engineered for maximum mobility.</p></div>
-                <div class="col-md-4"><i class="fas fa-wind fa-3x text-primary mb-3"></i><h6>Breathable Tech</h6><p class="text-muted small px-3">Advanced airflow design.</p></div>
-                <div class="col-md-4"><i class="fas fa-shield-virus fa-3x text-primary mb-3"></i><h6>Anti-Fade Dye</h6><p class="text-muted small px-3">Colors stay sharp wash after wash.</p></div>
+                <div class="col-md-4"><i class="fas fa-arrows-alt fa-3x text-primary mb-4"></i><h5 class="fw-bold">4-Way Stretch</h5><p class="text-muted px-4">Engineered for maximum mobility in emergency situations.</p></div>
+                <div class="col-md-4"><i class="fas fa-wind fa-3x text-primary mb-4"></i><h5 class="fw-bold">Breathable Tech</h5><p class="text-muted px-4">Advanced moisture-wicking design to keep you cool.</p></div>
+                <div class="col-md-4"><i class="fas fa-shield-virus fa-3x text-primary mb-4"></i><h5 class="fw-bold">Anti-Fade Dye</h5><p class="text-muted px-4">Colors stay sharp and vibrant wash after wash.</p></div>
             </div>
         </div>
     </section>
@@ -221,21 +230,24 @@
         <div class="container py-5">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
-                    <h2 class="fw-bold mb-4">Express Your Style</h2>
+                    <h2 class="fw-bold mb-4 display-5">Express Your Style</h2>
+                    <p class="text-muted mb-4">Choose from our curated selection of professional medical tones. Each set is designed to maintain a sharp appearance throughout your shift.</p>
                     <div class="d-flex flex-wrap gap-3 mb-5">
                         <div class="color-swatch shadow-sm" style="background: #002366;" title="Royal Blue"></div>
                         <div class="color-swatch shadow-sm" style="background: #800020;" title="Burgundy"></div>
                         <div class="color-swatch shadow-sm" style="background: #004953;" title="Teal"></div>
                         <div class="color-swatch shadow-sm" style="background: #2E2E2E;" title="Charcoal"></div>
-                        <div class="text-muted d-flex align-items-center ps-2 small">+ 15 More Colors</div>
+                        <div class="color-swatch shadow-sm" style="background: #000000;" title="Black"></div>
+                        <div class="text-muted d-flex align-items-center ps-2 fw-semibold">+ 10 More Colors</div>
                     </div>
-                    <button class="btn btn-primary btn-lg px-5 shadow-sm" data-bs-toggle="modal" data-bs-target="#sizeGuideModal" style="background: #003366; border: none; border-radius: 12px;">View Size Guide</button>
+                    <button class="btn btn-primary btn-lg px-5 shadow-sm" data-bs-toggle="modal" data-bs-target="#sizeGuideModal" style="background: #003366; border: none; border-radius: 12px; font-weight: 600;">View Size Guide</button>
                 </div>
                 <div class="col-lg-6">
-                    <div class="p-5 text-white rounded-4 shadow-lg position-relative overflow-hidden" style="background: #003366;">
+                    <div class="p-5 text-white rounded-4 shadow-lg position-relative overflow-hidden" style="background: linear-gradient(135deg, #003366 0%, #001f3f 100%);">
+                        <div class="position-absolute top-0 end-0 p-4 opacity-10"><i class="fas fa-hospital fa-10x"></i></div>
                         <h3 class="fw-bold mb-3">Group Buy Offer</h3>
-                        <p class="mb-4 opacity-75">Get **15% OFF** when you order 5 or more sets for your facility.</p>
-                        <a href="https://wa.me/254790640609?text=Team%20Discount" class="btn btn-warning btn-lg w-100 fw-bold">Claim Team Discount</a>
+                        <p class="mb-4 opacity-75 fs-5">Equip your clinic or hospital department. Get **15% OFF** when you order 5 or more sets for your facility.</p>
+                        <a href="https://wa.me/254790640609?text=Team%20Discount%20Inquiry" class="btn btn-warning btn-lg w-100 fw-bold py-3 shadow">Claim Team Discount</a>
                     </div>
                 </div>
             </div>
@@ -245,74 +257,96 @@
     <section id="embroidery" class="py-5 bg-white border-top">
         <div class="container py-5">
             <div class="row align-items-center flex-row-reverse g-5">
-                <div class="col-lg-6"><img src="embroidery-preview.jpg" class="img-fluid rounded-4 shadow-lg" alt="Branding"></div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=1000" class="img-fluid img-overlay-card shadow-lg" alt="Branding">
+                </div>
                 <div class="col-lg-6">
                     <h2 class="display-5 fw-bold mb-4">Stitched to Last</h2>
-                    <p class="lead text-muted">High-definition embroidery for names and hospital logos.</p>
-                    <a href="contact.html" class="btn btn-outline-primary btn-lg">Discuss Branding Options</a>
+                    <p class="lead text-muted mb-4">Our high-definition embroidery services allow for crisp, professional name tags and hospital logos that won't fray or fade.</p>
+                    <ul class="list-unstyled mb-5">
+                        <li class="mb-3"><i class="fas fa-check text-warning me-3"></i>Precision Computerized Stitching</li>
+                        <li class="mb-3"><i class="fas fa-check text-warning me-3"></i>Custom Color Thread Matching</li>
+                        <li><i class="fas fa-check text-warning me-3"></i>Bulk Branding for Institutions</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline-primary btn-lg px-5" style="border-radius: 12px; border-width: 2px; font-weight: 700;">Discuss Branding</a>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="py-5 bg-light">
-        <div class="container py-5">
-            <div class="text-center mb-5"><h2 class="fw-bold">Trusted by Meru's Medics</h2></div>
+        <div class="container py-5 text-center">
+            <h2 class="fw-bold mb-5 display-6">Trusted by Meru's Medics</h2>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="card border-0 shadow-sm p-4 h-100 feature-card">
-                        <p class="fst-italic">"The stretch is incredible for long emergency shifts."</p>
-                        <h6 class="fw-bold mt-3">Dr. Njau - Meru Level 5</h6>
+                        <div class="text-warning mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="fst-italic text-muted">"The stretch is incredible for long emergency shifts. Easily the best scrubs in Meru."</p>
+                        <h6 class="fw-bold mt-3 text-primary">Dr. Njau - Meru Level 5</h6>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card border-0 shadow-sm p-4 h-100 feature-card" style="animation-delay: 0.5s;">
-                        <p class="fst-italic">"Ordered for my whole department. Branding is perfect."</p>
-                        <h6 class="fw-bold mt-3">Nurse Faith - Senior Nurse</h6>
+                        <div class="text-warning mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="fst-italic text-muted">"Ordered for my whole department. The custom branding is perfect and very high-end."</p>
+                        <h6 class="fw-bold mt-3 text-primary">Nurse Faith - Senior Nurse</h6>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card border-0 shadow-sm p-4 h-100 feature-card" style="animation-delay: 1s;">
-                        <p class="fst-italic">"Premium fabric and the best delivery in Meru."</p>
-                        <h6 class="fw-bold mt-3">Sam M. - Lab Technician</h6>
+                        <div class="text-warning mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="fst-italic text-muted">"Premium fabric and the most reliable delivery service. I recommend them to everyone."</p>
+                        <h6 class="fw-bold mt-3 text-primary">Sam M. - Lab Technician</h6>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <a href="https://wa.me/254790640609?text=Hello%20Dagii%20Scrubs!" class="whatsapp-float">
-        <i class="fab fa-whatsapp fa-lg"></i>
+    <a href="https://wa.me/254790640609?text=Hello%20Dagii%20Scrubs!%20I%20would%20like%20to%20place%20an%20order." class="whatsapp-float">
+        <i class="fab fa-whatsapp fa-2x"></i>
         <span>WhatsApp Order</span>
     </a>
 
-    <footer class="py-5 bg-dark text-white text-center" style="background: #001f3f !important;">
-        <div class="container">
-            <h4 class="fw-bold mb-4">DAGII SCRUBS</h4>
-            <div class="mb-4">
+    <footer class="py-5 text-white" style="background: #001226 !important;">
+        <div class="container text-center">
+            <h3 class="fw-bold mb-4 tracking-tighter">DAGII SCRUBS</h3>
+            <p class="opacity-50 mb-4">Premium Healthcare Apparel | Meru, Kenya</p>
+            <div class="mb-5">
                 <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="social-icon" style="animation-delay: 0.5s;"><i class="fab fa-instagram"></i></a>
                 <a href="#" class="social-icon" style="animation-delay: 1s;"><i class="fab fa-tiktok"></i></a>
             </div>
-            <p class="text-muted small mb-0">© 2026 Dagii Scrubs Meru. Powered by <strong>Julls Digital</strong></p>
+            <p class="text-muted small mb-0">© 2026 Dagii Scrubs. Branding by <strong>Julls Digital</strong></p>
         </div>
     </footer>
 
     <div class="modal fade" id="sizeGuideModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content rounded-4 border-0">
-                <div class="modal-header border-0"><h5 class="fw-bold">Size Guide</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
-                <div class="modal-body">
-                    <table class="table text-center">
-                        <thead><tr><th>Size</th><th>Chest</th><th>Waist</th></tr></thead>
-                        <tbody><tr><td>S</td><td>34-36</td><td>28-30</td></tr><tr><td>M</td><td>38-40</td><td>32-34</td></tr><tr><td>L</td><td>42-44</td><td>36-38</td></tr></tbody>
-                    </table>
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="fw-bold text-primary px-3 pt-3">Size Guide</h5>
+                    <button type="button" class="btn-close m-3" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="table-responsive">
+                        <table class="table text-center align-middle">
+                            <thead class="table-light"><tr><th>Size</th><th>Chest (in)</th><th>Waist (in)</th></tr></thead>
+                            <tbody>
+                                <tr><td>S</td><td>34-36</td><td>28-30</td></tr>
+                                <tr><td>M</td><td>38-40</td><td>32-34</td></tr>
+                                <tr><td>L</td><td>42-44</td><td>36-38</td></tr>
+                                <tr><td>XL</td><td>46-48</td><td>40-42</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <button id="backToTop" class="btn btn-primary position-fixed bottom-0 end-0 m-4 shadow-lg d-none" style="width: 50px; height: 50px; border-radius: 50%; z-index: 1001; background: #003366; border: none;"><i class="fas fa-arrow-up"></i></button>
+    <button id="backToTop" class="btn btn-primary position-fixed bottom-0 end-0 m-4 shadow-lg d-none" style="width: 55px; height: 55px; border-radius: 50%; z-index: 1001; background: #003366; border: none; transition: 0.3s;"><i class="fas fa-arrow-up"></i></button>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const btt = document.getElementById('backToTop');
