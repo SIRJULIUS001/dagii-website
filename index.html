@@ -75,22 +75,14 @@
         /* Stats Bar */
         .stats-bar { background: var(--primary-blue); color: white; padding: 60px 0; border-bottom: 5px solid var(--accent-yellow); }
 
-        /* Category Cards (Swinging) */
-        .category-card {
-            height: 350px;
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-            border: none;
-            animation: floating 5s ease-in-out infinite alternate;
+        /* Color Swatch Styling */
+        .color-swatch {
+            width: 50px; height: 50px;
+            border-radius: 50%; cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid white; outline: 1px solid rgba(0,0,0,0.1);
         }
-        .category-overlay {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            padding: 30px;
-            background: linear-gradient(transparent, rgba(0, 51, 102, 0.95));
-            color: white;
-        }
+        .color-swatch:hover { transform: scale(1.2) rotate(15deg); outline: 2px solid var(--accent-yellow); z-index: 2; }
 
         /* Floating UI Elements */
         .whatsapp-float {
@@ -105,14 +97,17 @@
         }
         .whatsapp-float:hover { transform: scale(1.1); color: white; }
 
-        .floating-info {
-            position: fixed;
-            bottom: 30px; left: 30px;
-            background: white; padding: 12px 20px;
-            border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            z-index: 1000; border-left: 5px solid var(--accent-yellow);
+        /* Professional Footer Style */
+        .social-icon {
+            width: 45px; height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 50%; color: white; margin-right: 10px;
+            font-size: 1.2rem; transition: all 0.3s;
+            animation: floating 4s ease-in-out infinite;
+            text-decoration: none;
         }
-        @media (max-width: 991px) { .floating-info { display: none; } }
+        .social-icon:hover { background: var(--accent-yellow); color: var(--primary-blue); transform: translateY(-5px); }
 
         .btn-warning {
             background-color: var(--accent-yellow);
@@ -134,7 +129,7 @@
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">Our Story</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3" href="services.html">Gallery</a></li>
-                    <li class="nav-item"><a class="btn btn-warning" href="contact.html">Order Now</a></li>
+                    <li class="nav-item"><button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#sizeGuideModal">Size Guide</button></li>
                 </ul>
             </div>
         </div>
@@ -215,39 +210,114 @@
         <div class="container text-center">
             <h3 class="fw-bold mb-5">Technical Performance</h3>
             <div class="row g-4">
-                <div class="col-md-4">
-                    <i class="fas fa-arrows-alt fa-3x text-primary mb-3"></i>
-                    <h6>4-Way Stretch</h6>
-                    <p class="text-muted small px-3">Engineered for maximum mobility in emergency situations.</p>
+                <div class="col-md-4"><i class="fas fa-arrows-alt fa-3x text-primary mb-3"></i><h6>4-Way Stretch</h6><p class="text-muted small px-3">Engineered for maximum mobility.</p></div>
+                <div class="col-md-4"><i class="fas fa-wind fa-3x text-primary mb-3"></i><h6>Breathable Tech</h6><p class="text-muted small px-3">Advanced airflow design.</p></div>
+                <div class="col-md-4"><i class="fas fa-shield-virus fa-3x text-primary mb-3"></i><h6>Anti-Fade Dye</h6><p class="text-muted small px-3">Colors stay sharp wash after wash.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop" class="py-5">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-4">Express Your Style</h2>
+                    <div class="d-flex flex-wrap gap-3 mb-5">
+                        <div class="color-swatch shadow-sm" style="background: #002366;" title="Royal Blue"></div>
+                        <div class="color-swatch shadow-sm" style="background: #800020;" title="Burgundy"></div>
+                        <div class="color-swatch shadow-sm" style="background: #004953;" title="Teal"></div>
+                        <div class="color-swatch shadow-sm" style="background: #2E2E2E;" title="Charcoal"></div>
+                        <div class="text-muted d-flex align-items-center ps-2 small">+ 15 More Colors</div>
+                    </div>
+                    <button class="btn btn-primary btn-lg px-5 shadow-sm" data-bs-toggle="modal" data-bs-target="#sizeGuideModal" style="background: #003366; border: none; border-radius: 12px;">View Size Guide</button>
                 </div>
-                <div class="col-md-4">
-                    <i class="fas fa-wind fa-3x text-primary mb-3"></i>
-                    <h6>Breathable Tech</h6>
-                    <p class="text-muted small px-3">Advanced airflow design to keep you cool under pressure.</p>
-                </div>
-                <div class="col-md-4">
-                    <i class="fas fa-shield-virus fa-3x text-primary mb-3"></i>
-                    <h6>Anti-Fade Dye</h6>
-                    <p class="text-muted small px-3">Vibrant colors that stay sharp wash after wash.</p>
+                <div class="col-lg-6">
+                    <div class="p-5 text-white rounded-4 shadow-lg position-relative overflow-hidden" style="background: #003366;">
+                        <h3 class="fw-bold mb-3">Group Buy Offer</h3>
+                        <p class="mb-4 opacity-75">Get **15% OFF** when you order 5 or more sets for your facility.</p>
+                        <a href="https://wa.me/254790640609?text=Team%20Discount" class="btn btn-warning btn-lg w-100 fw-bold">Claim Team Discount</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <a href="https://wa.me/254790640609?text=Hello%20Dagii%20Scrubs!%20I'm%20interested%20in..." class="whatsapp-float">
+    <section id="embroidery" class="py-5 bg-white border-top">
+        <div class="container py-5">
+            <div class="row align-items-center flex-row-reverse g-5">
+                <div class="col-lg-6"><img src="embroidery-preview.jpg" class="img-fluid rounded-4 shadow-lg" alt="Branding"></div>
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold mb-4">Stitched to Last</h2>
+                    <p class="lead text-muted">High-definition embroidery for names and hospital logos.</p>
+                    <a href="contact.html" class="btn btn-outline-primary btn-lg">Discuss Branding Options</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5"><h2 class="fw-bold">Trusted by Meru's Medics</h2></div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm p-4 h-100 feature-card">
+                        <p class="fst-italic">"The stretch is incredible for long emergency shifts."</p>
+                        <h6 class="fw-bold mt-3">Dr. Njau - Meru Level 5</h6>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm p-4 h-100 feature-card" style="animation-delay: 0.5s;">
+                        <p class="fst-italic">"Ordered for my whole department. Branding is perfect."</p>
+                        <h6 class="fw-bold mt-3">Nurse Faith - Senior Nurse</h6>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm p-4 h-100 feature-card" style="animation-delay: 1s;">
+                        <p class="fst-italic">"Premium fabric and the best delivery in Meru."</p>
+                        <h6 class="fw-bold mt-3">Sam M. - Lab Technician</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/254790640609?text=Hello%20Dagii%20Scrubs!" class="whatsapp-float">
         <i class="fab fa-whatsapp fa-lg"></i>
         <span>WhatsApp Order</span>
     </a>
 
-    <div class="floating-info">
-        <small class="text-muted d-block">Visit Shop:</small>
-        <strong>Meru Town, Kenya</strong>
-    </div>
-
-    <footer class="py-5 bg-white text-center">
-        <p class="text-muted mb-0 small">© 2026 Dagii Scrubs. Powered by <strong>Julls Digital</strong></p>
+    <footer class="py-5 bg-dark text-white text-center" style="background: #001f3f !important;">
+        <div class="container">
+            <h4 class="fw-bold mb-4">DAGII SCRUBS</h4>
+            <div class="mb-4">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon" style="animation-delay: 0.5s;"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon" style="animation-delay: 1s;"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <p class="text-muted small mb-0">© 2026 Dagii Scrubs Meru. Powered by <strong>Julls Digital</strong></p>
+        </div>
     </footer>
 
+    <div class="modal fade" id="sizeGuideModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0">
+                <div class="modal-header border-0"><h5 class="fw-bold">Size Guide</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <table class="table text-center">
+                        <thead><tr><th>Size</th><th>Chest</th><th>Waist</th></tr></thead>
+                        <tbody><tr><td>S</td><td>34-36</td><td>28-30</td></tr><tr><td>M</td><td>38-40</td><td>32-34</td></tr><tr><td>L</td><td>42-44</td><td>36-38</td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="backToTop" class="btn btn-primary position-fixed bottom-0 end-0 m-4 shadow-lg d-none" style="width: 50px; height: 50px; border-radius: 50%; z-index: 1001; background: #003366; border: none;"><i class="fas fa-arrow-up"></i></button>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const btt = document.getElementById('backToTop');
+        window.onscroll = () => { if (window.scrollY > 500) btt.classList.remove('d-none'); else btt.classList.add('d-none'); };
+        btt.onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
+    </script>
 </body>
 </html>
