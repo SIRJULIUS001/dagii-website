@@ -3,123 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dagii Scrubs - Quality Scrubs for Healthcare Heroes in Meru</title>
+    <title>Dagii Scrubs | Professional Healthcare Apparel Meru</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #003366;
+            --accent-yellow: #ffc107;
+            --text-dark: #1f2937;
+            --bg-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .navbar-brand { font-weight: 800; color: var(--primary-blue) !important; letter-spacing: -0.5px; }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.85)), url('hero-bg.jpg'); /* Add a background image here */
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0;
+            color: white;
+        }
+
+        /* Pro Floating Container (Feature Cards) */
+        .feature-card {
+            border: none;
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 10px 15px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+            color: white;
+        }
+
+        /* Floating Contact Container (Bottom Left) */
+        .floating-info {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: none; /* Hidden on small screens */
+            border-left: 4px solid var(--accent-yellow);
+        }
+        @media (min-width: 992px) { .floating-info { display: block; } }
+
+        .btn-warning {
+            background-color: var(--accent-yellow);
+            border: none;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm">
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Dagii Scrubs</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">DAGII SCRUBS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-warning ms-lg-3" href="contact.html">Contact Us</a></li>
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Our Story</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-4" href="services.html">Gallery</a></li>
+                    <li class="nav-item"><a class="btn btn-warning" href="contact.html">Order Now</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-   <header class="hero-section" style="background-color: #003366; color: white;">
-    <div class="container text-center">
-        <h1 class="display-3 fw-bold">Quality Scrubs for Dedicated Healthcare Heroes</h1>
-        <p class="lead my-4" style="color: white;">Comfort, Durability, and Style—Built for the Demands of Your Work.</p>
-        
-        <a href="services.html" class="btn hero-cta btn-lg shadow" style="background-color: #ffc107; color: #333;">View Our Collections</a>
-        
-    </div>
-</header>
-
-    <section class="container my-5 py-5">
-        <h2 class="text-center section-title">Why Choose Dagii Scrubs?</h2>
-        <div class="row g-4">
-            
-            <div class="col-md-4">
-                <div class="card h-100">
-                    <img src="stretching.png" class="card-img-top" alt="Stretchy fabric close-up">
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold text-primary"><i class="fas fa-hand-holding-medical me-2"></i> All-Day Comfort</h5>
-                        <p class="card-text">Our premium, lightweight fabric ensures maximum breathability and stretch, keeping you comfortable through the longest shifts.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card h-100">
-                    <img src="stitching.png" class="card-img-top" alt="Close-up of durable stitching">
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold text-primary"><i class="fas fa-shield-alt me-2"></i> Built to Last</h5>
-                        <p class="card-text">Featuring reinforced stitching and fade-resistant colors, Dagii Scrubs withstand repeated industrial washing without losing shape.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card h-100">
-                    <img src="models.png" class="card-img-top" alt="Models wearing different colored scrubs">
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold text-primary"><i class="fas fa-palette me-2"></i> Modern Designs</h5>
-                        <p class="card-text">Choose from a wide range of sizes, modern cuts, and professional colors perfect for every role in healthcare.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="bg-primary text-white py-5">
-        <div class="container text-center">
-            <h2 class="mb-3">Serving Healthcare Professionals in Meru Town</h2>
-            <p class="lead">Visit our shop or order online for fast, reliable delivery.</p>
-            <a href="contact.html" class="btn btn-light btn-lg mt-3">Find Us in Meru</a>
-        </div>
-    </section>
-
-    <footer class="footer mt-auto">
+    <header class="hero-section text-center">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <h5>Dagii Scrubs</h5>
-                    <p>Quality Scrubs for Dedicated Healthcare Heroes in Meru and beyond.</p>
-                    <p class="contact-info"><i class="fas fa-map-marker-alt"></i>Meru Town, Kenya</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">Our Story</a></li>
-                        <li><a href="services.html">Our Services</a></li>
-                        <li><a href="contact.html">Get in Touch</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <h5>Connect With Us</h5>
-                    <p class="contact-info"><i class="fas fa-phone"></i> +254 790 640 609</p>
-                    <p class="contact-info"><i class="fas fa-envelope"></i> info@dagiiscrubs.co.ke</p>
-                    <div class="mt-3">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a> 
+            <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold">PREMIUM MEDICAL APPAREL</span>
+            <h1 class="display-2 fw-bolder mb-4">Built for the <br><span class="text-warning">Healthcare Hero</span></h1>
+            <p class="lead mb-5 opacity-90 mx-auto" style="max-width: 600px;">Experience the perfect blend of athletic-grade stretch and industrial durability tailored for Meru's finest medics.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#features" class="btn btn-warning btn-lg shadow">Explore Collection</a>
+                <a href="contact.html" class="btn btn-outline-light btn-lg">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="container my-5 py-5">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 feature-card p-3">
+                    <img src="stretching.png" class="card-img-top rounded" alt="Comfort">
+                    <div class="card-body">
+                        <h5 class="fw-bold"><i class="fas fa-wind text-primary me-2"></i> All-Day Comfort</h5>
+                        <p class="text-muted">Breathable, lightweight fabrics that move with you through 12-hour shifts.</p>
                     </div>
-                    <a href="https://wa.me/254790640609?text=Hello%20from%20your%20website!" target="_blank">
-                    Chat with us on WhatsApp </a>
                 </div>
             </div>
-            <div class="row border-top pt-3 mt-3">
-                <div class="col text-center">
-                    <p class="mb-0 text-muted">© 2025 Dagii Scrubs. All Rights Reserved. | Designed by Julls Digital.</p>
+            <div class="col-md-4">
+                <div class="card h-100 feature-card p-3">
+                    <img src="stitching.png" class="card-img-top rounded" alt="Durability">
+                    <div class="card-body">
+                        <h5 class="fw-bold"><i class="fas fa-shield-heart text-primary me-2"></i> Built to Last</h5>
+                        <p class="text-muted">Reinforced stitching that survives industrial washing without losing its fit.</p>
+                    </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="card h-100 feature-card p-3">
+                    <img src="models.png" class="card-img-top rounded" alt="Style">
+                    <div class="card-body">
+                        <h5 class="fw-bold"><i class="fas fa-user-md text-primary me-2"></i> Modern Fit</h5>
+                        <p class="text-muted">Tailored cuts that look professional and feel contemporary.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/254790640609?text=Hello%20Dagii%20Scrubs!%20I'm%20interested%20in..." class="whatsapp-float">
+        <i class="fab fa-whatsapp fa-lg"></i>
+        <span>Chat with Us</span>
+    </a>
+
+    <div class="floating-info">
+        <small class="text-muted d-block">Location:</small>
+        <strong>Meru Town, Kenya</strong>
+    </div>
+
+    <footer class="bg-light py-4 border-top">
+        <div class="container text-center">
+            <p class="text-muted mb-0">© 2026 Dagii Scrubs. Powered by <strong>Julls Digital</strong>.</p>
         </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
