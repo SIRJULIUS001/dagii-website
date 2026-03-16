@@ -26,36 +26,45 @@
             overflow-x: hidden;
         }
 
-        /* Navbar Styling */
-        .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-        }
         .navbar-brand { font-weight: 800; color: var(--primary-blue) !important; letter-spacing: -0.5px; }
 
-        /* Hero Section */
+        /* Hero Section with optimized Overlay */
         .hero-section {
-            background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.85)), url('hero-bg.jpg'); /* Add a background image here */
+            background: linear-gradient(rgba(0, 20, 40, 0.7), rgba(0, 20, 40, 0.7)), url('hero-bg.jpg'); 
             background-size: cover;
             background-position: center;
-            padding: 120px 0;
+            background-attachment: fixed; /* Parallax effect */
+            padding: 160px 0;
             color: white;
         }
 
-        /* Pro Floating Container (Feature Cards) */
-        .feature-card {
+        /* Feature & Category Cards */
+        .feature-card, .category-card {
             border: none;
             border-radius: 16px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: hidden;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
-        .feature-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        .feature-card:hover, .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
-        /* Floating WhatsApp Button */
+        .category-card { position: relative; height: 300px; }
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+        }
+
+        /* Stats Section */
+        .stats-bar { background: var(--primary-blue); color: white; padding: 60px 0; }
+
+        /* WhatsApp & Floating Info */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -71,14 +80,8 @@
             font-weight: 600;
             box-shadow: 0 10px 15px rgba(37, 211, 102, 0.3);
             z-index: 1000;
-            transition: transform 0.3s ease;
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.05);
-            color: white;
         }
 
-        /* Floating Contact Container (Bottom Left) */
         .floating-info {
             position: fixed;
             bottom: 30px;
@@ -88,23 +91,14 @@
             border-radius: 12px;
             box-shadow: 0 10px 15px rgba(0,0,0,0.1);
             z-index: 1000;
-            display: none; /* Hidden on small screens */
             border-left: 4px solid var(--accent-yellow);
         }
-        @media (min-width: 992px) { .floating-info { display: block; } }
-
-        .btn-warning {
-            background-color: var(--accent-yellow);
-            border: none;
-            font-weight: 600;
-            padding: 12px 28px;
-            border-radius: 8px;
-        }
+        @media (max-width: 992px) { .floating-info { display: none; } }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm bg-white">
         <div class="container">
             <a class="navbar-brand" href="#">DAGII SCRUBS</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -115,7 +109,7 @@
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">Our Story</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-4" href="services.html">Gallery</a></li>
-                    <li class="nav-item"><a class="btn btn-warning" href="contact.html">Order Now</a></li>
+                    <li class="nav-item"><a class="btn btn-warning px-4" href="contact.html" style="background-color: var(--accent-yellow); font-weight: 700;">Order Now</a></li>
                 </ul>
             </div>
         </div>
@@ -123,43 +117,93 @@
 
     <header class="hero-section text-center">
         <div class="container">
-            <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold">PREMIUM MEDICAL APPAREL</span>
-            <h1 class="display-2 fw-bolder mb-4">Built for the <br><span class="text-warning">Healthcare Hero</span></h1>
-            <p class="lead mb-5 opacity-90 mx-auto" style="max-width: 600px;">Experience the perfect blend of athletic-grade stretch and industrial durability tailored for Meru's finest medics.</p>
+            <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold">PREMIUM MEDICAL WEAR</span>
+            <h1 class="display-2 fw-bolder mb-4">Precision Wear for <br><span class="text-warning">Healthcare Heroes</span></h1>
+            <p class="lead mb-5 opacity-90 mx-auto" style="max-width: 700px;">Engineered for comfort. Designed for style. Delivered across Meru to the dedicated professionals who keep us safe.</p>
             <div class="d-flex justify-content-center gap-3">
-                <a href="#features" class="btn btn-warning btn-lg shadow">Explore Collection</a>
-                <a href="contact.html" class="btn btn-outline-light btn-lg">Contact Us</a>
+                <a href="#shop" class="btn btn-warning btn-lg px-5 shadow">Shop Collection</a>
+                <a href="contact.html" class="btn btn-outline-light btn-lg px-5">Get a Quote</a>
             </div>
         </div>
     </header>
 
-    <section id="features" class="container my-5 py-5">
+    <section class="stats-bar">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-6 col-md-3">
+                    <h2 class="display-5 fw-bold text-warning">500+</h2>
+                    <p class="mb-0 opacity-75">Happy Medics</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h2 class="display-5 fw-bold text-warning">15+</h2>
+                    <p class="mb-0 opacity-75">Vibrant Colors</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h2 class="display-5 fw-bold text-warning">24hr</h2>
+                    <p class="mb-0 opacity-75">Meru Delivery</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h2 class="display-5 fw-bold text-warning">100%</h2>
+                    <p class="mb-0 opacity-75">Quality Fabric</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop" class="container py-5 mt-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Explore Our Collections</h2>
+            <p class="text-muted">Tailored apparel for every specialized role.</p>
+        </div>
         <div class="row g-4">
             <div class="col-md-4">
-                <div class="card h-100 feature-card p-3">
-                    <img src="stretching.png" class="card-img-top rounded" alt="Comfort">
-                    <div class="card-body">
-                        <h5 class="fw-bold"><i class="fas fa-wind text-primary me-2"></i> All-Day Comfort</h5>
-                        <p class="text-muted">Breathable, lightweight fabrics that move with you through 12-hour shifts.</p>
+                <div class="category-card" style="background: url('nursing.jpg') center/cover;">
+                    <div class="category-overlay">
+                        <h4 class="fw-bold mb-1">Nursing Essential</h4>
+                        <p class="small mb-2">High-stretch & Multi-pocket</p>
+                        <a href="gallery.html" class="btn btn-sm btn-light">View Styles</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card h-100 feature-card p-3">
-                    <img src="stitching.png" class="card-img-top rounded" alt="Durability">
-                    <div class="card-body">
-                        <h5 class="fw-bold"><i class="fas fa-shield-heart text-primary me-2"></i> Built to Last</h5>
-                        <p class="text-muted">Reinforced stitching that survives industrial washing without losing its fit.</p>
+                <div class="category-card" style="background: url('surgical.jpg') center/cover;">
+                    <div class="category-overlay">
+                        <h4 class="fw-bold mb-1">Surgical Pro</h4>
+                        <p class="small mb-2">Antimicrobial & Durable</p>
+                        <a href="gallery.html" class="btn btn-sm btn-light">View Styles</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card h-100 feature-card p-3">
-                    <img src="models.png" class="card-img-top rounded" alt="Style">
-                    <div class="card-body">
-                        <h5 class="fw-bold"><i class="fas fa-user-md text-primary me-2"></i> Modern Fit</h5>
-                        <p class="text-muted">Tailored cuts that look professional and feel contemporary.</p>
+                <div class="category-card" style="background: url('admin.jpg') center/cover;">
+                    <div class="category-overlay">
+                        <h4 class="fw-bold mb-1">Custom Branding</h4>
+                        <p class="small mb-2">Names & Logo Embroidery</p>
+                        <a href="contact.html" class="btn btn-sm btn-light">Inquire Now</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light py-5 border-top border-bottom">
+        <div class="container text-center">
+            <h3 class="fw-bold mb-5">The Science of Comfort</h3>
+            <div class="row g-5">
+                <div class="col-md-4">
+                    <i class="fas fa-arrows-alt fa-3x text-primary mb-3"></i>
+                    <h5>4-Way Stretch</h5>
+                    <p class="text-muted small">Fabric that moves with your body, preventing restriction during emergencies.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-tint-slash fa-3x text-primary mb-3"></i>
+                    <h5>Moisture Wicking</h5>
+                    <p class="text-muted small">Stay dry and cool during long, demanding shifts in any environment.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-shield-virus fa-3x text-primary mb-3"></i>
+                    <h5>Fade Resistant</h5>
+                    <p class="text-muted small">Industrial-grade dyes ensure your scrubs look new even after 50+ washes.</p>
                 </div>
             </div>
         </div>
@@ -167,17 +211,18 @@
 
     <a href="https://wa.me/254790640609?text=Hello%20Dagii%20Scrubs!%20I'm%20interested%20in..." class="whatsapp-float">
         <i class="fab fa-whatsapp fa-lg"></i>
-        <span>Chat with Us</span>
+        <span>WhatsApp Order</span>
     </a>
 
     <div class="floating-info">
-        <small class="text-muted d-block">Location:</small>
+        <small class="text-muted d-block">Visit our shop:</small>
         <strong>Meru Town, Kenya</strong>
     </div>
 
-    <footer class="bg-light py-4 border-top">
+    <footer class="py-5 bg-white">
         <div class="container text-center">
-            <p class="text-muted mb-0">© 2026 Dagii Scrubs. Powered by <strong>Julls Digital</strong>.</p>
+            <p class="mb-0 text-muted">© 2026 Dagii Scrubs. All Rights Reserved.</p>
+            <p class="small text-muted">Designed with Excellence by <strong>Julls Digital</strong></p>
         </div>
     </footer>
 
