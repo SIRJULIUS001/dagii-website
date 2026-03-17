@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Shop Medical Scrubs & Orthopedic Equipment | Dagii Scrubs Meru</title>
+    <meta name="description" content="Premium medical apparel, orthopedic supports, and clinical equipment in Meru, Kenya. High-quality scrubs, knee braces, and diagnostic tools for healthcare heroes.">
+    <meta name="keywords" content="Medical Scrubs Meru, Orthopedic Equipment Kenya, Dagii Scrubs, Buy Stethoscopes Meru, Knee Braces Kenya, Medical Supplies Meru">
+    <meta name="author" content="Julls Digital">
+    
+    <meta property="og:title" content="Dagii Scrubs & Medical Supplies | Meru">
+    <meta property="og:description" content="The standard in clinical excellence. Shop premium scrubs and orthopedic gear.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-github-username.github.io/store.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "MedicalBusiness",
+      "name": "Dagii Scrubs & Medical Supplies",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Meru",
+        "addressCountry": "KE"
+      },
+      "priceRange": "KSh 1000 - KSh 25000"
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #003366;
+            --accent: #ffc107;
+            --light-bg: #f8fbff;
+        }
+
+        body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); color: #2d3436; }
+
+        /* Smooth Transitions */
+        .product-card {
+            border: none;
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            background: #ffffff;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(0, 51, 102, 0.1);
+        }
+
+        .img-wrapper {
+            height: 250px;
+            overflow: hidden;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .img-wrapper img { transform: scale(1.1); }
+
+        .badge-cat {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.7rem;
+            padding: 6px 14px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Filter Widget Styling */
+        .filter-container {
+            background: #fff;
+            padding: 10px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: inline-flex;
+            gap: 5px;
+        }
+
+        .btn-filter {
+            border: none;
+            background: transparent;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #636e72;
+            transition: 0.3s;
+        }
+
+        .btn-filter.active { background: var(--primary); color: #fff; }
+
+        .price-text { font-size: 1.4rem; font-weight: 800; color: var(--primary); }
+
+        .wa-btn {
+            background: #25d366;
+            color: #fff;
+            border-radius: 12px;
+            font-weight: 700;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .wa-btn:hover { background: #128c7e; color: #fff; transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-white py-3 shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bolder text-primary" href="index.html">DAGII <span class="text-warning">SCRUBS</span></a>
+        <a href="index.html" class="btn btn-outline-primary btn-sm rounded-pill px-4">Back to Home</a>
+    </div>
+</nav>
+
+<main class="container py-5">
+    <header class="text-center mb-5">
+        <h1 class="fw-bold display-4">Professional Catalog</h1>
+        <p class="text-muted lead">Equipping Meru’s Medical Professionals with Quality & Style</p>
+        
+        <div class="filter-container mt-4">
+            <button class="btn-filter active" onclick="filterData('all', this)">All</button>
+            <button class="btn-filter" onclick="filterData('Apparel', this)">Apparel</button>
+            <button class="btn-filter" onclick="filterData('Orthopedic', this)">Orthopedic</button>
+            <button class="btn-filter" onclick="filterData('Equipment', this)">Equipment</button>
+        </div>
+    </header>
+
+    <div class="row g-4" id="store-front">
+        </div>
+</main>
+
+<script>
+    // Mock API Data - Replace the URL in the fetch section later
+    const products = [
+        {
+            id: 101,
+            category: "Apparel",
+            name: "Premium V-Neck Scrub Set",
+            price: "3,500",
+            img: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&q=80&w=800",
+            desc: "Ultra-soft, moisture-wicking fabric for long shifts."
+        },
+        {
+            id: 201,
+            category: "Orthopedic",
+            name: "Adjustable Knee Support",
+            price: "5,800",
+            img: "https://images.unsplash.com/photo-1581056323862-61d0251fe2fe?auto=format&fit=crop&q=80&w=800",
+            desc: "Professional stabilization for ligament recovery."
+        },
+        {
+            id: 301,
+            category: "Equipment",
+            name: "Littmann Classic III Stethoscope",
+            price: "12,500",
+            img: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800",
+            desc: "High acoustic sensitivity for exceptional performance."
+        },
+        {
+            id: 202,
+            category: "Orthopedic",
+            name: "Compression Ankle Sleeve",
+            price: "1,200",
+            img: "https://images.unsplash.com/photo-1596728321725-364ef02868bf?auto=format&fit=crop&q=80&w=800",
+            desc: "Improves circulation and reduces medical-grade swelling."
+        }
+    ];
+
+    const storeContainer = document.getElementById('store-front');
+
+    function renderProducts(items) {
+        storeContainer.innerHTML = items.map(p => `
+            <div class="col-md-6 col-lg-4 animate__animated animate__fadeIn">
+                <article class="card product-card shadow-sm">
+                    <div class="img-wrapper">
+                        <span class="badge-cat shadow-sm">${p.category}</span>
+                        <img src="${p.img}" alt="${p.name}" loading="lazy">
+                    </div>
+                    <div class="card-body p-4">
+                        <h2 class="h5 fw-bold mb-2">${p.name}</h2>
+                        <p class="text-muted small mb-4">${p.desc}</p>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="price-text">KSh ${p.price}</span>
+                        </div>
+                        <a href="https://wa.me/254790640609?text=Order Inquiry: ${p.name}" class="btn wa-btn text-center">
+                            <i class="fab fa-whatsapp me-2"></i>Order via WhatsApp
+                        </a>
+                    </div>
+                </article>
+            </div>
+        `).join('');
+    }
+
+    function filterData(cat, btn) {
+        // Toggle Active Class
+        document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Logic
+        if(cat === 'all') {
+            renderProducts(products);
+        } else {
+            const filtered = products.filter(item => item.category === cat);
+            renderProducts(filtered);
+        }
+    }
+
+    // Initialize Store
+    document.addEventListener('DOMContentLoaded', () => renderProducts(products));
+</script>
+
+<footer class="bg-white py-4 mt-5 border-top">
+    <div class="container text-center">
+        <p class="text-muted small mb-0">© 2026 Dagii Scrubs & Medical. Optimized by <strong>Julls Digital</strong></p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
