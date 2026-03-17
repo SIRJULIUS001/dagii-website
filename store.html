@@ -3,23 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Medical Equipment & IVD Solutions | Dagii Medical Meru</title>
-    <meta name="description" content="Authorized distributor of clinical diagnostic products, Seamaty IVD devices, surgical tools, and ward care equipment in Meru, Kenya.">
-    <meta name="keywords" content="Seamaty Kenya, IVD devices Meru, Diagnostic Equipment Meru, Surgical Instruments Kenya, Medical Laser Generators, Ward Care Equipment Meru">
-    <meta name="author" content="Julls Digital">
+    <meta name="description" content="Authorized Seamaty distributor in Meru. Providing IVD devices, SHA biometric scanners, reagents, and hospital furniture.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <style>
         :root {
-            --primary-green: #1a936f; /* Medical Clinical Green */
+            --primary-green: #1a936f;
             --dark-green: #114b3a;
             --accent-yellow: #ffc107;
             --light-bg: #f4f9f7;
@@ -27,7 +23,6 @@
 
         body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); color: #2d3436; }
 
-        /* Smooth Transitions */
         .product-card {
             border: none;
             border-radius: 20px;
@@ -44,7 +39,7 @@
         }
 
         .img-wrapper {
-            height: 220px;
+            height: 200px;
             overflow: hidden;
             border-radius: 20px 20px 0 0;
             position: relative;
@@ -58,8 +53,6 @@
             transition: transform 0.6s ease;
         }
 
-        .product-card:hover .img-wrapper img { transform: scale(1.1); }
-
         .badge-cat {
             position: absolute;
             top: 15px;
@@ -71,11 +64,9 @@
             padding: 6px 12px;
             border-radius: 50px;
             text-transform: uppercase;
-            backdrop-filter: blur(4px);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        /* Filter Widget Styling */
         .filter-container {
             background: #fff;
             padding: 8px;
@@ -90,52 +81,62 @@
         .btn-filter {
             border: none;
             background: transparent;
-            padding: 8px 20px;
+            padding: 8px 18px;
             border-radius: 40px;
             font-weight: 600;
             color: #636e72;
             transition: 0.3s;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .btn-filter.active { background: var(--primary-green); color: #fff; }
 
-        .price-text { font-size: 1.2rem; font-weight: 800; color: var(--primary-green); }
+        .search-box {
+            border-radius: 50px;
+            padding: 12px 25px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .price-text { font-size: 1.1rem; font-weight: 800; color: var(--primary-green); }
 
         .wa-btn {
             background: var(--primary-green);
             color: #fff;
             border-radius: 12px;
             font-weight: 700;
-            border: none;
-            padding: 12px;
+            padding: 10px;
             width: 100%;
+            display: block;
+            text-decoration: none;
             transition: 0.3s;
         }
 
-        .wa-btn:hover { background: var(--dark-green); color: #fff; transform: translateY(-2px); }
+        .wa-btn:hover { background: var(--dark-green); color: white; }
 
         .specs-btn {
-            background: transparent;
-            color: var(--primary-green);
-            border: 1px solid var(--primary-green);
+            background: #f8f9fa;
+            color: var(--dark-green);
+            border: 1px solid #eee;
             border-radius: 12px;
             font-weight: 600;
             padding: 8px;
             width: 100%;
             margin-bottom: 8px;
-            transition: 0.3s;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
-        
-        .specs-btn:hover { background: var(--primary-green); color: white; }
+
+        /* Styling for Featured Package */
+        .featured-card {
+            border: 2px solid var(--accent-yellow) !important;
+        }
     </style>
 </head>
 <body>
 
 <nav class="navbar navbar-light bg-white py-3 shadow-sm sticky-top">
     <div class="container">
-        <a class="navbar-brand fw-bolder text-success" href="index.html" style="color: var(--primary-green) !important;">
+        <a class="navbar-brand fw-bold" href="index.html" style="color: var(--primary-green);">
             DAGII <span class="text-warning">MEDICAL</span>
         </a>
         <a href="index.html" class="btn btn-outline-success btn-sm rounded-pill px-4">Back to Home</a>
@@ -144,28 +145,35 @@
 
 <main class="container py-5">
     <header class="text-center mb-5">
-        <h1 class="fw-bold display-4" style="color: var(--dark-green);">Medical Equipment Catalog</h1>
-        <p class="text-muted lead">Sourcing Seamaty IVD Devices & Hospital Solutions for Meru County</p>
+        <h1 class="fw-bold display-5" style="color: var(--dark-green);">Medical Equipment & Supplies</h1>
+        <p class="text-muted">Direct Sourcing for Healthcare Providers in Meru County</p>
         
-        <div class="filter-container mt-4">
-            <button class="btn-filter active" onclick="filterData('all', this)">All</button>
-            <button class="btn-filter" onclick="filterData('Diagnostic', this)">Diagnostic</button>
+        <div class="row justify-content-center my-4">
+            <div class="col-md-6">
+                <input type="text" id="searchInput" class="form-control search-box" placeholder="Search products, brands, or categories..." onkeyup="searchProducts()">
+            </div>
+        </div>
+
+        <div class="filter-container">
+            <button class="btn-filter active" onclick="filterData('all', this)">All Items</button>
+            <button class="btn-filter" onclick="filterData('Featured', this)">Packages</button>
+            <button class="btn-filter" onclick="filterData('Diagnostic', this)">Diagnostics</button>
+            <button class="btn-filter" onclick="filterData('Consumables', this)">Reagents/Consumables</button>
             <button class="btn-filter" onclick="filterData('Treatment', this)">Treatment</button>
-            <button class="btn-filter" onclick="filterData('Auxiliary', this)">Auxiliary</button>
-            <button class="btn-filter" onclick="filterData('Apparel', this)">Apparel</button>
+            <button class="btn-filter" onclick="filterData('Digital', this)">Digital/SHA</button>
+            <button class="btn-filter" onclick="filterData('Auxiliary', this)">Furniture & Mobility</button>
         </div>
     </header>
 
-    <div class="row g-4" id="store-front">
-        </div>
+    <div class="row g-4" id="store-front"></div>
 </main>
 
-<div class="modal fade" id="specsModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="specsModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
-            <div class="modal-header bg-light border-0" style="border-radius: 20px 20px 0 0;">
-                <h5 class="modal-title fw-bold" id="modalTitle">Technical Specifications</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header border-0 bg-light">
+                <h5 class="modal-title fw-bold" id="modalTitle">Technical Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body p-4" id="modalBody"></div>
         </div>
@@ -174,72 +182,98 @@
 
 <script>
     const products = [
-        // DIAGNOSTIC
+        // FEATURED BUNDLES
+        {
+            id: 100,
+            category: "Featured",
+            name: "Dagii Clinic Startup Bundle",
+            price: "Custom Package Deal",
+            img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
+            desc: "The complete setup for new clinics. Full diagnostics + SHA compliance tools in one pack.",
+            specs: [
+                "Seamaty SMT-120V Chemistry Analyzer",
+                "SHA/SHIF Certified Biometric Scanner",
+                "20x Multi-parameter Reagent Discs",
+                "Free Installation & Staff Training",
+                "12 Months Local Tech Support"
+            ]
+        },
+        // DIAGNOSTICS
         {
             id: 1,
             category: "Diagnostic",
             name: "Seamaty SMT-120V Analyzer",
             price: "Inquire for Quote",
             img: "https://images.unsplash.com/photo-1579152276503-68fe28ec89a1?auto=format&fit=crop&q=80&w=800",
-            desc: "Fully automated biochemistry analyzer for clinical diagnostics.",
-            specs: ["Sample: Whole blood, Serum, Plasma", "Test Time: 12 min", "Parameters: Up to 35"]
+            desc: "Portable automated chemistry analyzer. 35 parameters in 12 mins.",
+            specs: ["POCT Technology", "Sample: 100ul Whole Blood", "LIS/HIS Compatible"]
         },
         {
             id: 2,
             category: "Diagnostic",
-            name: "Ultrasonic Diagnostic System",
-            price: "450,000",
-            img: "https://images.unsplash.com/photo-1581594658553-4357630d4b6d?auto=format&fit=crop&q=80&w=800",
-            desc: "High-resolution 4D imaging for obstetric and functional exams.",
-            specs: ["Display: 15 inch LED", "Modes: B, M, 4B", "Application: OB/GYN, Abdominal"]
+            name: "Seamaty SMT-50 Hematology",
+            price: "Inquire for Quote",
+            img: "https://images.unsplash.com/photo-1579152171543-f40a16defd1b?auto=format&fit=crop&q=80&w=800",
+            desc: "3-part differentiation analyzer. 60 samples per hour throughput.",
+            specs: ["21 Parameters + 3 Histograms", "10.4-inch Touch Screen", "Minimal Maintenance"]
         },
-        // TREATMENT
+        // CONSUMABLES
         {
             id: 3,
-            category: "Treatment",
-            name: "Multi-function Hospital Bed",
-            price: "85,000",
-            img: "https://plus.unsplash.com/premium_photo-1661766524961-0b5c17945935?auto=format&fit=crop&q=80&w=800",
-            desc: "Ward care equipment with adjustable height and ergonomic side rails.",
-            specs: ["Material: Cold-rolled steel", "Functions: 3-crank manual", "Load: 250kg"]
+            category: "Consumables",
+            name: "Seamaty Reagent Discs",
+            price: "Inquire (Bulk)",
+            img: "https://images.unsplash.com/photo-1583912267550-d44d4a3c5a61?auto=format&fit=crop&q=80&w=800",
+            desc: "Chemistry profile discs for SMT-120V. Microfluidic technology.",
+            specs: ["12-Month Shelf Life", "QR Code Calibration", "Panels: Liver, Kidney, Lipid"]
         },
         {
             id: 4,
-            category: "Treatment",
-            name: "Medical Laser Generator (CO2)",
-            price: "195,000",
-            img: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800",
-            desc: "Ruby/Helium-neon laser for microsurgery and dermatology.",
-            specs: ["Wavelength: 10.6um", "Power: 30W", "Cooling: Air cooled"]
+            category: "Consumables",
+            name: "Rapid Diagnostic Test Kits",
+            price: "Market Rates",
+            img: "https://images.unsplash.com/photo-1614944034234-41da03994e41?auto=format&fit=crop&q=80&w=800",
+            desc: "High-accuracy strips for H. Pylori, Malaria, and Typhoid.",
+            specs: ["WHO Pre-qualified", "Result in 15 mins", "Simple protocol"]
         },
+        // DIGITAL / SHA
         {
             id: 5,
-            category: "Treatment",
-            name: "Cardiac Defibrillator",
-            price: "120,000",
-            img: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=800",
-            desc: "First aid equipment with pacing and AED functionality.",
-            specs: ["Waveform: Biphasic", "Screen: 7 inch TFT", "Battery: 4 hours"]
+            category: "Digital",
+            name: "ZKTeco Biometric Scanner",
+            price: "12,500",
+            img: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800",
+            desc: "SHA/SHIF Certified scanner for patient verification in Meru.",
+            specs: ["Optical Fingerprint Sensor", "USB Connectivity", "Portal Ready"]
         },
-        // AUXILIARY
+        // TREATMENT
         {
             id: 6,
-            category: "Auxiliary",
-            name: "Industrial Autoclave Sterilizer",
-            price: "75,000",
-            img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80&w=800",
-            desc: "High-pressure sterilization for clinical tools and surgical kits.",
-            specs: ["Volume: 24L", "Temp: 134°C", "Safety: Auto-shutoff"]
+            category: "Treatment",
+            name: "Medical Oxygen Concentrator",
+            price: "110,000",
+            img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=800",
+            desc: "10L hospital-grade oxygen supply with 93% purity.",
+            specs: ["Continuous Run-time", "Low Noise Level", "Nebulizer Function"]
         },
-        // APPAREL
+        // AUXILIARY / MOBILITY
         {
             id: 7,
-            category: "Apparel",
-            name: "Premium Emerald Scrub Set",
-            price: "3,800",
-            img: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&q=80&w=800",
-            desc: "Antimicrobial, breathable fabric designed for Meru clinicians.",
-            specs: ["Fabric: 4-way stretch", "Pockets: 6 reinforced", "Fit: Modern Tailored"]
+            category: "Auxiliary",
+            name: "Standard Foldable Wheelchair",
+            price: "18,500",
+            img: "https://images.unsplash.com/photo-1597452485669-2c7bb5fef90d?auto=format&fit=crop&q=80&w=800",
+            desc: "Durable chrome-plated steel frame for hospital and home use.",
+            specs: ["120kg Capacity", "Foldable Design", "Solid Puncture-proof Tires"]
+        },
+        {
+            id: 8,
+            category: "Auxiliary",
+            name: "Multi-function Hospital Bed",
+            price: "85,000",
+            img: "https://plus.unsplash.com/premium_photo-1661766524961-0b5c17945935?auto=format&fit=crop&q=80&w=800",
+            desc: "3-crank manual bed with adjustable height and side rails.",
+            specs: ["Steel Framework", "Silent Casters", "Ergonomic Design"]
         }
     ];
 
@@ -248,21 +282,17 @@
     function renderProducts(items) {
         storeContainer.innerHTML = items.map(p => `
             <div class="col-md-6 col-lg-4 animate__animated animate__fadeIn">
-                <article class="card product-card shadow-sm">
+                <article class="card product-card ${p.category === 'Featured' ? 'featured-card shadow' : ''}">
                     <div class="img-wrapper">
-                        <span class="badge-cat shadow-sm">${p.category}</span>
+                        <span class="badge-cat" style="${p.category === 'Featured' ? 'background: #ffc107; color: #000;' : ''}">${p.category}</span>
                         <img src="${p.img}" alt="${p.name}" loading="lazy">
                     </div>
                     <div class="card-body p-4">
-                        <h2 class="h5 fw-bold mb-2">${p.name}</h2>
-                        <p class="text-muted small mb-4">${p.desc}</p>
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="price-text">${p.price.includes('Inquire') ? p.price : 'KSh ' + p.price}</span>
-                        </div>
-                        <button class="specs-btn" onclick="showSpecs(${p.id})">
-                            <i class="fas fa-microscope me-2"></i>View Specs
-                        </button>
-                        <a href="https://wa.me/254790640609?text=Inquiry for ${p.name}" class="btn wa-btn text-center">
+                        <h2 class="h6 fw-bold mb-2">${p.name}</h2>
+                        <p class="text-muted small mb-3">${p.desc}</p>
+                        <p class="price-text mb-3">${p.price.includes('KSh') || isNaN(p.price.replace(',','')) ? p.price : 'KSh ' + p.price}</p>
+                        <button class="specs-btn" onclick="showSpecs(${p.id})">What's Included</button>
+                        <a href="https://wa.me/254790640609?text=Inquiry: ${p.name}" class="wa-btn text-center">
                             <i class="fab fa-whatsapp me-2"></i>Contact Seller
                         </a>
                     </div>
@@ -271,38 +301,35 @@
         `).join('');
     }
 
-    function showSpecs(id) {
-        const p = products.find(prod => prod.id === id);
-        const modalBody = document.getElementById('modalBody');
-        document.getElementById('modalTitle').innerText = p.name;
-        
-        modalBody.innerHTML = `<ul class="list-group list-group-flush">
-            ${p.specs.map(s => `<li class="list-group-item border-0 px-0 small text-muted"><i class="fas fa-check-circle text-success me-2"></i>${s}</li>`).join('')}
-        </ul>`;
-        
-        new bootstrap.Modal(document.getElementById('specsModal')).show();
+    function searchProducts() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const filtered = products.filter(p => 
+            p.name.toLowerCase().includes(query) || 
+            p.category.toLowerCase().includes(query) ||
+            p.desc.toLowerCase().includes(query)
+        );
+        renderProducts(filtered);
     }
 
     function filterData(cat, btn) {
         document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        if(cat === 'all') {
-            renderProducts(products);
-        } else {
-            const filtered = products.filter(item => item.category === cat);
-            renderProducts(filtered);
-        }
+        if(cat === 'all') renderProducts(products);
+        else renderProducts(products.filter(p => p.category === cat));
+    }
+
+    function showSpecs(id) {
+        const p = products.find(prod => prod.id === id);
+        const modalBody = document.getElementById('modalBody');
+        document.getElementById('modalTitle').innerText = p.name;
+        modalBody.innerHTML = `<ul class="list-group list-group-flush">
+            ${p.specs.map(s => `<li class="list-group-item border-0 px-0 small"><i class="fas fa-check-circle text-success me-2"></i>${s}</li>`).join('')}
+        </ul>`;
+        new bootstrap.Modal(document.getElementById('specsModal')).show();
     }
 
     document.addEventListener('DOMContentLoaded', () => renderProducts(products));
 </script>
-
-<footer class="bg-white py-5 mt-5 border-top">
-    <div class="container text-center">
-        <p class="text-muted small mb-0">Authorized Seamaty Partner | Dagii Medical Meru</p>
-        <p class="text-muted x-small">Optimized by <strong>Julls Digital</strong></p>
-    </div>
-</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
