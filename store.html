@@ -4,41 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Shop Medical Scrubs & Orthopedic Equipment | Dagii Scrubs Meru</title>
-    <meta name="description" content="Premium medical apparel, orthopedic supports, and clinical equipment in Meru, Kenya. High-quality scrubs, knee braces, and diagnostic tools for healthcare heroes.">
-    <meta name="keywords" content="Medical Scrubs Meru, Orthopedic Equipment Kenya, Dagii Scrubs, Buy Stethoscopes Meru, Knee Braces Kenya, Medical Supplies Meru">
+    <title>Medical Equipment & IVD Solutions | Dagii Medical Meru</title>
+    <meta name="description" content="Authorized distributor of clinical diagnostic products, Seamaty IVD devices, surgical tools, and ward care equipment in Meru, Kenya.">
+    <meta name="keywords" content="Seamaty Kenya, IVD devices Meru, Diagnostic Equipment Meru, Surgical Instruments Kenya, Medical Laser Generators, Ward Care Equipment Meru">
     <meta name="author" content="Julls Digital">
     
-    <meta property="og:title" content="Dagii Scrubs & Medical Supplies | Meru">
-    <meta property="og:description" content="The standard in clinical excellence. Shop premium scrubs and orthopedic gear.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://your-github-username.github.io/store.html">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org/",
-      "@type": "MedicalBusiness",
-      "name": "Dagii Scrubs & Medical Supplies",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Meru",
-        "addressCountry": "KE"
-      },
-      "priceRange": "KSh 1000 - KSh 25000"
-    }
-    </script>
-
     <style>
         :root {
-            --primary: #003366;
-            --accent: #ffc107;
-            --light-bg: #f8fbff;
+            --primary-green: #1a936f; /* Medical Clinical Green */
+            --dark-green: #114b3a;
+            --accent-yellow: #ffc107;
+            --light-bg: #f4f9f7;
         }
 
         body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); color: #2d3436; }
@@ -50,18 +34,21 @@
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             background: #ffffff;
             height: 100%;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .product-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 30px rgba(0, 51, 102, 0.1);
+            box-shadow: 0 20px 30px rgba(26, 147, 111, 0.15);
+            border-color: var(--primary-green);
         }
 
         .img-wrapper {
-            height: 250px;
+            height: 220px;
             overflow: hidden;
             border-radius: 20px 20px 0 0;
             position: relative;
+            background: #f8f8f8;
         }
 
         .img-wrapper img {
@@ -77,42 +64,46 @@
             position: absolute;
             top: 15px;
             left: 15px;
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--primary);
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary-green);
             font-weight: 700;
-            font-size: 0.7rem;
-            padding: 6px 14px;
+            font-size: 0.65rem;
+            padding: 6px 12px;
             border-radius: 50px;
             text-transform: uppercase;
             backdrop-filter: blur(4px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         /* Filter Widget Styling */
         .filter-container {
             background: #fff;
-            padding: 10px;
+            padding: 8px;
             border-radius: 50px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 5px;
         }
 
         .btn-filter {
             border: none;
             background: transparent;
-            padding: 10px 24px;
+            padding: 8px 20px;
             border-radius: 40px;
             font-weight: 600;
             color: #636e72;
             transition: 0.3s;
+            font-size: 0.9rem;
         }
 
-        .btn-filter.active { background: var(--primary); color: #fff; }
+        .btn-filter.active { background: var(--primary-green); color: #fff; }
 
-        .price-text { font-size: 1.4rem; font-weight: 800; color: var(--primary); }
+        .price-text { font-size: 1.2rem; font-weight: 800; color: var(--primary-green); }
 
         .wa-btn {
-            background: #25d366;
+            background: var(--primary-green);
             color: #fff;
             border-radius: 12px;
             font-weight: 700;
@@ -122,28 +113,46 @@
             transition: 0.3s;
         }
 
-        .wa-btn:hover { background: #128c7e; color: #fff; transform: translateY(-2px); }
+        .wa-btn:hover { background: var(--dark-green); color: #fff; transform: translateY(-2px); }
+
+        .specs-btn {
+            background: transparent;
+            color: var(--primary-green);
+            border: 1px solid var(--primary-green);
+            border-radius: 12px;
+            font-weight: 600;
+            padding: 8px;
+            width: 100%;
+            margin-bottom: 8px;
+            transition: 0.3s;
+            font-size: 0.85rem;
+        }
+        
+        .specs-btn:hover { background: var(--primary-green); color: white; }
     </style>
 </head>
 <body>
 
 <nav class="navbar navbar-light bg-white py-3 shadow-sm sticky-top">
     <div class="container">
-        <a class="navbar-brand fw-bolder text-primary" href="index.html">DAGII <span class="text-warning">SCRUBS</span></a>
-        <a href="index.html" class="btn btn-outline-primary btn-sm rounded-pill px-4">Back to Home</a>
+        <a class="navbar-brand fw-bolder text-success" href="index.html" style="color: var(--primary-green) !important;">
+            DAGII <span class="text-warning">MEDICAL</span>
+        </a>
+        <a href="index.html" class="btn btn-outline-success btn-sm rounded-pill px-4">Back to Home</a>
     </div>
 </nav>
 
 <main class="container py-5">
     <header class="text-center mb-5">
-        <h1 class="fw-bold display-4">Professional Catalog</h1>
-        <p class="text-muted lead">Equipping Meru’s Medical Professionals with Quality & Style</p>
+        <h1 class="fw-bold display-4" style="color: var(--dark-green);">Medical Equipment Catalog</h1>
+        <p class="text-muted lead">Sourcing Seamaty IVD Devices & Hospital Solutions for Meru County</p>
         
         <div class="filter-container mt-4">
             <button class="btn-filter active" onclick="filterData('all', this)">All</button>
+            <button class="btn-filter" onclick="filterData('Diagnostic', this)">Diagnostic</button>
+            <button class="btn-filter" onclick="filterData('Treatment', this)">Treatment</button>
+            <button class="btn-filter" onclick="filterData('Auxiliary', this)">Auxiliary</button>
             <button class="btn-filter" onclick="filterData('Apparel', this)">Apparel</button>
-            <button class="btn-filter" onclick="filterData('Orthopedic', this)">Orthopedic</button>
-            <button class="btn-filter" onclick="filterData('Equipment', this)">Equipment</button>
         </div>
     </header>
 
@@ -151,40 +160,86 @@
         </div>
 </main>
 
+<div class="modal fade" id="specsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
+            <div class="modal-header bg-light border-0" style="border-radius: 20px 20px 0 0;">
+                <h5 class="modal-title fw-bold" id="modalTitle">Technical Specifications</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4" id="modalBody"></div>
+        </div>
+    </div>
+</div>
+
 <script>
-    // Mock API Data - Replace the URL in the fetch section later
     const products = [
+        // DIAGNOSTIC
         {
-            id: 101,
-            category: "Apparel",
-            name: "Premium V-Neck Scrub Set",
-            price: "3,500",
-            img: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&q=80&w=800",
-            desc: "Ultra-soft, moisture-wicking fabric for long shifts."
+            id: 1,
+            category: "Diagnostic",
+            name: "Seamaty SMT-120V Analyzer",
+            price: "Inquire for Quote",
+            img: "https://images.unsplash.com/photo-1579152276503-68fe28ec89a1?auto=format&fit=crop&q=80&w=800",
+            desc: "Fully automated biochemistry analyzer for clinical diagnostics.",
+            specs: ["Sample: Whole blood, Serum, Plasma", "Test Time: 12 min", "Parameters: Up to 35"]
         },
         {
-            id: 201,
-            category: "Orthopedic",
-            name: "Adjustable Knee Support",
-            price: "5,800",
-            img: "https://images.unsplash.com/photo-1581056323862-61d0251fe2fe?auto=format&fit=crop&q=80&w=800",
-            desc: "Professional stabilization for ligament recovery."
+            id: 2,
+            category: "Diagnostic",
+            name: "Ultrasonic Diagnostic System",
+            price: "450,000",
+            img: "https://images.unsplash.com/photo-1581594658553-4357630d4b6d?auto=format&fit=crop&q=80&w=800",
+            desc: "High-resolution 4D imaging for obstetric and functional exams.",
+            specs: ["Display: 15 inch LED", "Modes: B, M, 4B", "Application: OB/GYN, Abdominal"]
+        },
+        // TREATMENT
+        {
+            id: 3,
+            category: "Treatment",
+            name: "Multi-function Hospital Bed",
+            price: "85,000",
+            img: "https://plus.unsplash.com/premium_photo-1661766524961-0b5c17945935?auto=format&fit=crop&q=80&w=800",
+            desc: "Ward care equipment with adjustable height and ergonomic side rails.",
+            specs: ["Material: Cold-rolled steel", "Functions: 3-crank manual", "Load: 250kg"]
         },
         {
-            id: 301,
-            category: "Equipment",
-            name: "Littmann Classic III Stethoscope",
-            price: "12,500",
+            id: 4,
+            category: "Treatment",
+            name: "Medical Laser Generator (CO2)",
+            price: "195,000",
             img: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800",
-            desc: "High acoustic sensitivity for exceptional performance."
+            desc: "Ruby/Helium-neon laser for microsurgery and dermatology.",
+            specs: ["Wavelength: 10.6um", "Power: 30W", "Cooling: Air cooled"]
         },
         {
-            id: 202,
-            category: "Orthopedic",
-            name: "Compression Ankle Sleeve",
-            price: "1,200",
-            img: "https://images.unsplash.com/photo-1596728321725-364ef02868bf?auto=format&fit=crop&q=80&w=800",
-            desc: "Improves circulation and reduces medical-grade swelling."
+            id: 5,
+            category: "Treatment",
+            name: "Cardiac Defibrillator",
+            price: "120,000",
+            img: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=800",
+            desc: "First aid equipment with pacing and AED functionality.",
+            specs: ["Waveform: Biphasic", "Screen: 7 inch TFT", "Battery: 4 hours"]
+        },
+        // AUXILIARY
+        {
+            id: 6,
+            category: "Auxiliary",
+            name: "Industrial Autoclave Sterilizer",
+            price: "75,000",
+            img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80&w=800",
+            desc: "High-pressure sterilization for clinical tools and surgical kits.",
+            specs: ["Volume: 24L", "Temp: 134°C", "Safety: Auto-shutoff"]
+        },
+        // APPAREL
+        {
+            id: 7,
+            category: "Apparel",
+            name: "Premium Emerald Scrub Set",
+            price: "3,800",
+            img: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&q=80&w=800",
+            desc: "Antimicrobial, breathable fabric designed for Meru clinicians.",
+            specs: ["Fabric: 4-way stretch", "Pockets: 6 reinforced", "Fit: Modern Tailored"]
         }
     ];
 
@@ -202,10 +257,13 @@
                         <h2 class="h5 fw-bold mb-2">${p.name}</h2>
                         <p class="text-muted small mb-4">${p.desc}</p>
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="price-text">KSh ${p.price}</span>
+                            <span class="price-text">${p.price.includes('Inquire') ? p.price : 'KSh ' + p.price}</span>
                         </div>
-                        <a href="https://wa.me/254790640609?text=Order Inquiry: ${p.name}" class="btn wa-btn text-center">
-                            <i class="fab fa-whatsapp me-2"></i>Order via WhatsApp
+                        <button class="specs-btn" onclick="showSpecs(${p.id})">
+                            <i class="fas fa-microscope me-2"></i>View Specs
+                        </button>
+                        <a href="https://wa.me/254790640609?text=Inquiry for ${p.name}" class="btn wa-btn text-center">
+                            <i class="fab fa-whatsapp me-2"></i>Contact Seller
                         </a>
                     </div>
                 </article>
@@ -213,12 +271,21 @@
         `).join('');
     }
 
+    function showSpecs(id) {
+        const p = products.find(prod => prod.id === id);
+        const modalBody = document.getElementById('modalBody');
+        document.getElementById('modalTitle').innerText = p.name;
+        
+        modalBody.innerHTML = `<ul class="list-group list-group-flush">
+            ${p.specs.map(s => `<li class="list-group-item border-0 px-0 small text-muted"><i class="fas fa-check-circle text-success me-2"></i>${s}</li>`).join('')}
+        </ul>`;
+        
+        new bootstrap.Modal(document.getElementById('specsModal')).show();
+    }
+
     function filterData(cat, btn) {
-        // Toggle Active Class
         document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
-        // Logic
         if(cat === 'all') {
             renderProducts(products);
         } else {
@@ -227,13 +294,13 @@
         }
     }
 
-    // Initialize Store
     document.addEventListener('DOMContentLoaded', () => renderProducts(products));
 </script>
 
-<footer class="bg-white py-4 mt-5 border-top">
+<footer class="bg-white py-5 mt-5 border-top">
     <div class="container text-center">
-        <p class="text-muted small mb-0">© 2026 Dagii Scrubs & Medical. Optimized by <strong>Julls Digital</strong></p>
+        <p class="text-muted small mb-0">Authorized Seamaty Partner | Dagii Medical Meru</p>
+        <p class="text-muted x-small">Optimized by <strong>Julls Digital</strong></p>
     </div>
 </footer>
 
