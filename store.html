@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Equipment & IVD Solutions | Dagii Medical Meru</title>
-    <meta name="description" content="Authorized Seamaty distributor in Meru. Providing IVD devices, SHA biometric scanners, reagents, and hospital furniture.">
+    <title>Professional IVD & Medical Solutions | Dagii Medical</title>
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -19,313 +16,211 @@
             --dark-green: #114b3a;
             --accent-yellow: #ffc107;
             --light-bg: #f4f9f7;
+            --glass: rgba(255, 255, 255, 0.8);
         }
 
-        body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); color: #2d3436; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); color: #2d3436; overflow-x: hidden; }
 
+        /* Professional Card Styling */
         .product-card {
             border: none;
-            border-radius: 20px;
+            border-radius: 24px;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             background: #ffffff;
             height: 100%;
-            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 30px rgba(26, 147, 111, 0.15);
-            border-color: var(--primary-green);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(26, 147, 111, 0.2);
         }
 
         .img-wrapper {
-            height: 200px;
+            height: 220px;
             overflow: hidden;
-            border-radius: 20px 20px 0 0;
+            border-radius: 24px 24px 0 0;
             position: relative;
-            background: #f8f8f8;
         }
 
-        .img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .badge-cat {
+        .compare-checkbox {
             position: absolute;
             top: 15px;
-            left: 15px;
-            background: rgba(255, 255, 255, 0.95);
-            color: var(--primary-green);
-            font-weight: 700;
-            font-size: 0.65rem;
-            padding: 6px 12px;
-            border-radius: 50px;
-            text-transform: uppercase;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            right: 15px;
+            z-index: 10;
+            transform: scale(1.3);
+            accent-color: var(--primary-green);
         }
 
-        .filter-container {
-            background: #fff;
-            padding: 8px;
+        /* Floating Comparison Bar */
+        #compare-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dark-green);
+            color: white;
+            padding: 15px 30px;
             border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            display: inline-flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 5px;
+            display: none;
+            z-index: 1050;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            align-items: center;
+            gap: 20px;
         }
 
-        .btn-filter {
+        .btn-compare-trigger {
+            background: var(--accent-yellow);
             border: none;
-            background: transparent;
-            padding: 8px 18px;
-            border-radius: 40px;
-            font-weight: 600;
-            color: #636e72;
-            transition: 0.3s;
-            font-size: 0.85rem;
-        }
-
-        .btn-filter.active { background: var(--primary-green); color: #fff; }
-
-        .search-box {
+            color: #000;
+            font-weight: 800;
+            padding: 5px 20px;
             border-radius: 50px;
-            padding: 12px 25px;
-            border: 1px solid #e0e0e0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-
-        .price-text { font-size: 1.1rem; font-weight: 800; color: var(--primary-green); }
-
-        .wa-btn {
-            background: var(--primary-green);
-            color: #fff;
-            border-radius: 12px;
-            font-weight: 700;
-            padding: 10px;
-            width: 100%;
-            display: block;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .wa-btn:hover { background: var(--dark-green); color: white; }
-
-        .specs-btn {
-            background: #f8f9fa;
-            color: var(--dark-green);
-            border: 1px solid #eee;
-            border-radius: 12px;
-            font-weight: 600;
-            padding: 8px;
-            width: 100%;
-            margin-bottom: 8px;
-            font-size: 0.8rem;
-        }
-
-        /* Styling for Featured Package */
-        .featured-card {
-            border: 2px solid var(--accent-yellow) !important;
         }
     </style>
 </head>
 <body>
 
-<nav class="navbar navbar-light bg-white py-3 shadow-sm sticky-top">
+<nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html" style="color: var(--primary-green);">
-            DAGII <span class="text-warning">MEDICAL</span>
+        <a class="navbar-brand fw-800 text-uppercase" href="#" style="color: var(--primary-green); letter-spacing: -1px;">
+            Dagii<span class="text-warning">Medical</span> <small class="fs-6 opacity-50 fw-light">Distributor Portal</small>
         </a>
-        <a href="index.html" class="btn btn-outline-success btn-sm rounded-pill px-4">Back to Home</a>
+        <div class="ms-auto">
+            <span id="sync-status" class="badge bg-light text-success border"><i class="fas fa-circle me-1 small"></i> Inventory Live</span>
+        </div>
     </div>
 </nav>
 
 <main class="container py-5">
-    <header class="text-center mb-5">
-        <h1 class="fw-bold display-5" style="color: var(--dark-green);">Medical Equipment & Supplies</h1>
-        <p class="text-muted">Direct Sourcing for Healthcare Providers in Meru County</p>
-        
-        <div class="row justify-content-center my-4">
-            <div class="col-md-6">
-                <input type="text" id="searchInput" class="form-control search-box" placeholder="Search products, brands, or categories..." onkeyup="searchProducts()">
+    <div class="row align-items-center mb-5">
+        <div class="col-lg-6">
+            <h1 class="fw-800 display-4 mb-2" style="color: var(--dark-green);">Equipment <span class="text-success">Catalog</span></h1>
+            <p class="lead text-muted">Authorized precision diagnostics and clinical furniture for Meru's healthcare sector.</p>
+        </div>
+        <div class="col-lg-6 text-lg-end">
+            <div class="filter-container p-2 bg-white rounded-pill shadow-sm d-inline-flex flex-wrap">
+                <button class="btn-filter active" onclick="filterData('all', this)">All Stock</button>
+                <button class="btn-filter" onclick="filterData('Diagnostic', this)">Diagnostics</button>
+                <button class="btn-filter" onclick="filterData('Digital', this)">Digital/SHA</button>
             </div>
         </div>
+    </div>
 
-        <div class="filter-container">
-            <button class="btn-filter active" onclick="filterData('all', this)">All Items</button>
-            <button class="btn-filter" onclick="filterData('Featured', this)">Packages</button>
-            <button class="btn-filter" onclick="filterData('Diagnostic', this)">Diagnostics</button>
-            <button class="btn-filter" onclick="filterData('Consumables', this)">Reagents/Consumables</button>
-            <button class="btn-filter" onclick="filterData('Treatment', this)">Treatment</button>
-            <button class="btn-filter" onclick="filterData('Digital', this)">Digital/SHA</button>
-            <button class="btn-filter" onclick="filterData('Auxiliary', this)">Furniture & Mobility</button>
+    <div class="row mb-4">
+        <div class="col-md-8 mx-auto">
+            <div class="input-group input-group-lg shadow-sm">
+                <span class="input-group-text bg-white border-end-0 rounded-start-pill"><i class="fas fa-search text-muted"></i></span>
+                <input type="text" id="searchInput" class="form-control border-start-0 rounded-end-pill py-3" placeholder="Search by model, brand, or clinical application..." onkeyup="searchProducts()">
+            </div>
         </div>
-    </header>
+    </div>
 
-    <div class="row g-4" id="store-front"></div>
+    <div class="row g-4" id="store-front">
+        </div>
 </main>
 
-<div class="modal fade" id="specsModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
-            <div class="modal-header border-0 bg-light">
-                <h5 class="modal-title fw-bold" id="modalTitle">Technical Details</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body p-4" id="modalBody"></div>
+<div id="compare-bar" class="animate__animated animate__slideInUp">
+    <span id="compare-count">0 items selected</span>
+    <button class="btn-compare-trigger" onclick="openComparison()">Compare Now</button>
+</div>
+
+<div class="modal fade" id="compareModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content border-0" style="border-radius: 28px;">
+            <div class="modal-body p-5" id="compareBody">
+                </div>
         </div>
     </div>
 </div>
 
 <script>
     const products = [
-        // FEATURED BUNDLES
-        {
-            id: 100,
-            category: "Featured",
-            name: "Dagii Clinic Startup Bundle",
-            price: "Custom Package Deal",
-            img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
-            desc: "The complete setup for new clinics. Full diagnostics + SHA compliance tools in one pack.",
-            specs: [
-                "Seamaty SMT-120V Chemistry Analyzer",
-                "SHA/SHIF Certified Biometric Scanner",
-                "20x Multi-parameter Reagent Discs",
-                "Free Installation & Staff Training",
-                "12 Months Local Tech Support"
-            ]
-        },
-        // DIAGNOSTICS
-        {
-            id: 1,
-            category: "Diagnostic",
-            name: "Seamaty SMT-120V Analyzer",
-            price: "Inquire for Quote",
-            img: "https://images.unsplash.com/photo-1579152276503-68fe28ec89a1?auto=format&fit=crop&q=80&w=800",
-            desc: "Portable automated chemistry analyzer. 35 parameters in 12 mins.",
-            specs: ["POCT Technology", "Sample: 100ul Whole Blood", "LIS/HIS Compatible"]
-        },
-        {
-            id: 2,
-            category: "Diagnostic",
-            name: "Seamaty SMT-50 Hematology",
-            price: "Inquire for Quote",
-            img: "https://images.unsplash.com/photo-1579152171543-f40a16defd1b?auto=format&fit=crop&q=80&w=800",
-            desc: "3-part differentiation analyzer. 60 samples per hour throughput.",
-            specs: ["21 Parameters + 3 Histograms", "10.4-inch Touch Screen", "Minimal Maintenance"]
-        },
-        // CONSUMABLES
-        {
-            id: 3,
-            category: "Consumables",
-            name: "Seamaty Reagent Discs",
-            price: "Inquire (Bulk)",
-            img: "https://images.unsplash.com/photo-1583912267550-d44d4a3c5a61?auto=format&fit=crop&q=80&w=800",
-            desc: "Chemistry profile discs for SMT-120V. Microfluidic technology.",
-            specs: ["12-Month Shelf Life", "QR Code Calibration", "Panels: Liver, Kidney, Lipid"]
-        },
-        {
-            id: 4,
-            category: "Consumables",
-            name: "Rapid Diagnostic Test Kits",
-            price: "Market Rates",
-            img: "https://images.unsplash.com/photo-1614944034234-41da03994e41?auto=format&fit=crop&q=80&w=800",
-            desc: "High-accuracy strips for H. Pylori, Malaria, and Typhoid.",
-            specs: ["WHO Pre-qualified", "Result in 15 mins", "Simple protocol"]
-        },
-        // DIGITAL / SHA
-        {
-            id: 5,
-            category: "Digital",
-            name: "ZKTeco Biometric Scanner",
-            price: "12,500",
-            img: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800",
-            desc: "SHA/SHIF Certified scanner for patient verification in Meru.",
-            specs: ["Optical Fingerprint Sensor", "USB Connectivity", "Portal Ready"]
-        },
-        // TREATMENT
-        {
-            id: 6,
-            category: "Treatment",
-            name: "Medical Oxygen Concentrator",
-            price: "110,000",
-            img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=800",
-            desc: "10L hospital-grade oxygen supply with 93% purity.",
-            specs: ["Continuous Run-time", "Low Noise Level", "Nebulizer Function"]
-        },
-        // AUXILIARY / MOBILITY
-        {
-            id: 7,
-            category: "Auxiliary",
-            name: "Standard Foldable Wheelchair",
-            price: "18,500",
-            img: "https://images.unsplash.com/photo-1597452485669-2c7bb5fef90d?auto=format&fit=crop&q=80&w=800",
-            desc: "Durable chrome-plated steel frame for hospital and home use.",
-            specs: ["120kg Capacity", "Foldable Design", "Solid Puncture-proof Tires"]
-        },
-        {
-            id: 8,
-            category: "Auxiliary",
-            name: "Multi-function Hospital Bed",
-            price: "85,000",
-            img: "https://plus.unsplash.com/premium_photo-1661766524961-0b5c17945935?auto=format&fit=crop&q=80&w=800",
-            desc: "3-crank manual bed with adjustable height and side rails.",
-            specs: ["Steel Framework", "Silent Casters", "Ergonomic Design"]
-        }
+        { id: 1, category: "Diagnostic", name: "Seamaty SMT-120V", price: 0, brand: "Seamaty", img: "https://images.unsplash.com/photo-1579152276503-68fe28ec89a1?q=80&w=800", specs: { "Throughput": "35 parameters / 12m", "Sample": "100ul Blood", "Compliance": "ISO 13485" }},
+        { id: 2, category: "Diagnostic", name: "Seamaty SMT-50", price: 0, brand: "Seamaty", img: "https://images.unsplash.com/photo-1579152171543-f40a16defd1b?q=80&w=800", specs: { "Throughput": "60 samples / hr", "Screen": "10.4-inch Touch", "Compliance": "CE Marked" }},
+        { id: 5, category: "Digital", name: "ZKTeco Biometric", price: 12500, brand: "ZKTeco", img: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=800", specs: { "Sensor": "Optical SILK ID", "Interface": "USB 2.0", "Compatibility": "SHA/SHIF Portal" }}
     ];
 
-    const storeContainer = document.getElementById('store-front');
+    let compareList = [];
 
     function renderProducts(items) {
-        storeContainer.innerHTML = items.map(p => `
+        const container = document.getElementById('store-front');
+        if (items.length === 0) {
+            container.innerHTML = `<div class="col-12 text-center py-5 opacity-50"><i class="fas fa-box-open display-1 mb-3"></i><h4>No inventory matches found</h4></div>`;
+            return;
+        }
+
+        container.innerHTML = items.map(p => `
             <div class="col-md-6 col-lg-4 animate__animated animate__fadeIn">
-                <article class="card product-card ${p.category === 'Featured' ? 'featured-card shadow' : ''}">
+                <article class="product-card p-2 shadow-sm">
                     <div class="img-wrapper">
-                        <span class="badge-cat" style="${p.category === 'Featured' ? 'background: #ffc107; color: #000;' : ''}">${p.category}</span>
-                        <img src="${p.img}" alt="${p.name}" loading="lazy">
+                        <input type="checkbox" class="compare-checkbox" onchange="toggleCompare(${p.id}, this)">
+                        <img src="${p.img}" alt="${p.name}" class="img-fluid" loading="lazy">
+                        <span class="badge bg-white text-dark position-absolute bottom-0 start-0 m-3 shadow-sm">${p.brand}</span>
                     </div>
-                    <div class="card-body p-4">
-                        <h2 class="h6 fw-bold mb-2">${p.name}</h2>
-                        <p class="text-muted small mb-3">${p.desc}</p>
-                        <p class="price-text mb-3">${p.price.includes('KSh') || isNaN(p.price.replace(',','')) ? p.price : 'KSh ' + p.price}</p>
-                        <button class="specs-btn" onclick="showSpecs(${p.id})">What's Included</button>
-                        <a href="https://wa.me/254790640609?text=Inquiry: ${p.name}" class="wa-btn text-center">
-                            <i class="fab fa-whatsapp me-2"></i>Contact Seller
-                        </a>
+                    <div class="p-4">
+                        <h3 class="h5 fw-bold mb-1">${p.name}</h3>
+                        <p class="text-success fw-bold fs-5 mb-3">${p.price === 0 ? 'Request Quote' : 'KSh ' + p.price.toLocaleString()}</p>
+                        <div class="d-grid gap-2">
+                            <a href="https://wa.me/254790640609?text=I'm interested in the ${p.name}" class="btn btn-success rounded-pill fw-bold">Order on WhatsApp</a>
+                        </div>
                     </div>
                 </article>
             </div>
         `).join('');
     }
 
+    function toggleCompare(id, checkbox) {
+        if (checkbox.checked) {
+            if (compareList.length >= 3) {
+                alert("You can compare up to 3 items.");
+                checkbox.checked = false;
+                return;
+            }
+            compareList.push(products.find(p => p.id === id));
+        } else {
+            compareList = compareList.filter(p => p.id !== id);
+        }
+        
+        const bar = document.getElementById('compare-bar');
+        bar.style.display = compareList.length > 1 ? 'flex' : 'none';
+        document.getElementById('compare-count').innerText = `${compareList.length} items selected`;
+    }
+
+    function openComparison() {
+        const body = document.getElementById('compareBody');
+        const specs = [...new Set(compareList.flatMap(p => Object.keys(p.specs)))];
+
+        body.innerHTML = `
+            <h2 class="fw-800 mb-4">Technical Comparison</h2>
+            <div class="table-responsive">
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Specification</th>
+                            ${compareList.map(p => `<th class="text-center"><img src="${p.img}" width="80" class="rounded mb-2"><br>${p.name}</th>`).join('')}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${specs.map(s => `
+                            <tr class="border-top">
+                                <td class="fw-bold text-muted">${s}</td>
+                                ${compareList.map(p => `<td class="text-center">${p.specs[s] || '—'}</td>`).join('')}
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn btn-dark rounded-pill mt-4" data-bs-dismiss="modal">Close Comparison</button>
+        `;
+        new bootstrap.Modal(document.getElementById('compareModal')).show();
+    }
+
+    // Reuse your existing filter/search logic but call this render
     function searchProducts() {
         const query = document.getElementById('searchInput').value.toLowerCase();
-        const filtered = products.filter(p => 
-            p.name.toLowerCase().includes(query) || 
-            p.category.toLowerCase().includes(query) ||
-            p.desc.toLowerCase().includes(query)
-        );
-        renderProducts(filtered);
-    }
-
-    function filterData(cat, btn) {
-        document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        if(cat === 'all') renderProducts(products);
-        else renderProducts(products.filter(p => p.category === cat));
-    }
-
-    function showSpecs(id) {
-        const p = products.find(prod => prod.id === id);
-        const modalBody = document.getElementById('modalBody');
-        document.getElementById('modalTitle').innerText = p.name;
-        modalBody.innerHTML = `<ul class="list-group list-group-flush">
-            ${p.specs.map(s => `<li class="list-group-item border-0 px-0 small"><i class="fas fa-check-circle text-success me-2"></i>${s}</li>`).join('')}
-        </ul>`;
-        new bootstrap.Modal(document.getElementById('specsModal')).show();
+        renderProducts(products.filter(p => p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query)));
     }
 
     document.addEventListener('DOMContentLoaded', () => renderProducts(products));
