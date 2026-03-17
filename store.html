@@ -5,199 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional IVD & Medical Solutions | Dagii Medical Meru</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Roboto+Mono&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <style>
         :root {
-            --primary-green: #1a936f;
-            --dark-green: #114b3a;
-            --accent-yellow: #ffc107;
-            --light-bg: #f8fafc;
+            --primary-med: #0b4d3e;
+            --clinical-blue: #0056b3;
+            --light-bg: #f1f5f9;
             --white: #ffffff;
         }
 
         body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); color: #1e293b; }
+        .mono { font-family: 'Roboto Mono', monospace; font-size: 0.85rem; }
 
-        /* Professional Card Overhaul */
         .product-card {
-            border: none;
-            border-radius: 24px;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
             background: var(--white);
+            transition: all 0.3s ease;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.04);
+            cursor: pointer;
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px -12px rgba(26, 147, 111, 0.15);
+            border-color: var(--primary-med);
+            box-shadow: 0 10px 20px rgba(11, 77, 62, 0.1);
         }
 
         .img-wrapper {
-            height: 240px;
-            position: relative;
-            background: #f1f5f9;
-            padding: 20px;
+            height: 220px;
+            background: #fff;
+            padding: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-bottom: 1px solid #f1f5f9;
         }
 
-        .img-wrapper img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            mix-blend-mode: multiply;
-        }
+        .img-wrapper img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .cert-icon { font-size: 0.65rem; background: #e2e8f0; padding: 2px 8px; border-radius: 4px; font-weight: 700; color: #475569; }
 
-        .badge-cat {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: var(--white);
-            color: var(--dark-green);
-            font-weight: 800;
-            font-size: 0.7rem;
-            padding: 8px 16px;
-            border-radius: 100px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-        }
-
-        /* Filter Section Styling */
-        .filter-wrapper {
-            background: var(--white);
-            padding: 10px;
-            border-radius: 100px;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
-            display: inline-flex;
-            gap: 4px;
-        }
-
-        .btn-filter {
-            border: none;
-            background: transparent;
-            padding: 10px 24px;
-            border-radius: 100px;
-            font-weight: 600;
-            color: #64748b;
-            transition: 0.2s;
-            font-size: 0.9rem;
-        }
-
-        .btn-filter.active {
-            background: var(--primary-green);
-            color: var(--white);
-            box-shadow: 0 4px 10px rgba(26, 147, 111, 0.3);
-        }
-
-        .price-tag {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: var(--primary-green);
-            display: block;
-            margin-bottom: 1rem;
-        }
-
-        .btn-action {
-            border-radius: 14px;
-            padding: 12px;
-            font-weight: 700;
-            transition: 0.3s;
-        }
-
-        /* Comparison Tool Bar */
-        #compare-bar {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--dark-green);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 100px;
-            display: none;
-            z-index: 1000;
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
-            align-items: center;
-            gap: 20px;
-        }
+        /* Professional Modal Styling */
+        .modal-content { border-radius: 20px; border: none; overflow: hidden; }
+        .spec-label { font-size: 0.7rem; color: #64748b; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
+        
+        .footer-clinical { background: #0f172a; color: #94a3b8; padding: 60px 0 30px; }
+        .footer-clinical h5 { color: white; font-weight: 700; margin-bottom: 1.5rem; }
     </style>
 </head>
 <body>
 
-<nav class="navbar navbar-light bg-white border-bottom sticky-top py-3">
+<nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top py-3">
     <div class="container">
-        <a class="navbar-brand fw-800 fs-4 d-flex align-items-center" href="#" style="color: var(--primary-green); letter-spacing: -0.5px;">
-            DAGII <span class="text-warning ms-1">MEDICAL</span>
+        <a class="navbar-brand fw-800 fs-4 d-flex align-items-center" href="#" style="color: var(--primary-med); letter-spacing: -1px;">
+            DAGII<span class="text-secondary ms-1 fw-300">MEDICAL</span>
         </a>
-        <div class="d-none d-md-block text-muted small fw-600">
-            <i class="fas fa-map-marker-alt text-danger me-1"></i> Serving Meru & Mt. Kenya Region
+        <div class="ms-auto d-none d-md-flex align-items-center gap-4">
+            <div class="small"><i class="fas fa-microscope text-success me-2"></i>ISO 13485 Certified</div>
+            <div class="small"><i class="fas fa-shield-alt text-primary me-2"></i>SHA/SHIF Integrated</div>
         </div>
     </div>
 </nav>
 
 <main class="container py-5">
-    <div class="text-center mb-5">
-        <h1 class="display-5 fw-800 mb-3" style="color: var(--dark-green);">Diagnostic Solutions</h1>
-        <p class="text-muted lead mx-auto" style="max-width: 600px;">Precision IVD equipment, SHA biometric integration, and clinical furniture with local maintenance support.</p>
-        
-        <div class="row justify-content-center my-5">
-            <div class="col-md-7">
-                <div class="input-group shadow-sm rounded-pill overflow-hidden bg-white p-1">
-                    <span class="input-group-text border-0 bg-white ps-4"><i class="fas fa-search text-muted"></i></span>
-                    <input type="text" id="searchInput" class="form-control border-0 py-3" placeholder="Search by model or application (e.g. 'Chemistry')..." onkeyup="handleSearch()">
-                </div>
-            </div>
+    <div class="row align-items-center mb-5">
+        <div class="col-lg-6">
+            <h1 class="display-6 fw-800 mb-2" style="color: var(--primary-med);">Medical Procurement Portal</h1>
+            <p class="text-muted small">Direct supply of clinical analyzers and biometric registration hardware for the Mt. Kenya Region.</p>
         </div>
-
-        <div class="filter-wrapper">
-            <button class="btn-filter active" onclick="applyFilter('all', this)">All Stock</button>
-            <button class="btn-filter" onclick="applyFilter('Diagnostic', this)">Analyzers</button>
-            <button class="btn-filter" onclick="applyFilter('Digital', this)">Digital/SHA</button>
-            <button class="btn-filter" onclick="applyFilter('Auxiliary', this)">Furniture</button>
+        <div class="col-lg-6">
+            <div class="input-group shadow-sm rounded-3 overflow-hidden">
+                <input type="text" id="searchInput" class="form-control border-0 p-3" placeholder="Search by Model or Category..." onkeyup="handleSearch()">
+                <button class="btn btn-dark px-4"><i class="fas fa-search"></i></button>
+            </div>
         </div>
     </div>
 
     <div class="row g-4" id="inventory-grid"></div>
 </main>
 
-<div id="compare-bar" class="animate__animated animate__slideInUp">
-    <span id="compare-text" class="fw-600">0 items selected for comparison</span>
-    <button class="btn btn-warning rounded-pill px-4 fw-800" onclick="showComparisonModal()">Compare Now</button>
-</div>
-
-<div class="modal fade" id="detailModal" tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content border-0 shadow-lg" style="border-radius: 28px;">
-            <div class="modal-body p-0" id="detailContent"></div>
-        </div>
+<div class="modal fade" id="detailModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content shadow-lg" id="detailContent">
+            </div>
     </div>
 </div>
 
+<footer class="footer-clinical mt-5">
+    <div class="container text-center text-md-start">
+        <div class="row g-5">
+            <div class="col-md-4">
+                <h5>Technical Support</h5>
+                <p class="small">Meru Town, Opp. County Headquarters<br>Lead Support: +254 790 640609</p>
+            </div>
+            <div class="col-md-4">
+                <h5>SHA Verification</h5>
+                <p class="small">Our digital equipment is pre-configured for the Social Health Authority (SHA) biometric handshake protocols.</p>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <p class="fw-bold text-white small">ICT SERVICES DEPT</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg" width="60" class="opacity-25">
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     const inventory = [
         {
             id: 1,
             category: "Diagnostic",
             name: "Seamaty SMT-120V",
-            brand: "Seamaty",
-            price: "Request Quote",
+            brand: "Seamaty IVD",
+            price: "Institutional Quote",
             img: "https://images.unsplash.com/photo-1579152276503-68fe28ec89a1?auto=format&fit=crop&q=80&w=800",
-            description: "Fully automated chemistry analyzer utilizing microfluidic technology for rapid POCT diagnostics.",
+            certs: ["ISO 13485", "CE", "PPB"],
+            description: "High-throughput fully automated chemistry analyzer. Designed for Level 4 and Level 5 clinical laboratories in Meru County.",
             specs: {
-                "Technology": "Automated Microfluidics",
-                "Sample Size": "100ul Whole Blood/Serum",
-                "Time to Result": "12 Minutes",
-                "Parameters": "Up to 35 simultaneously",
-                "Connectivity": "Built-in Wi-Fi / LIS Compatible"
+                "Methodology": "End-point, Kinetic",
+                "Sample Size": "100ul Whole Blood",
+                "Throughput": "12 Min/Test",
+                "Storage": "500,000 Results",
+                "Connectivity": "WiFi/Ethernet/LIS"
             }
         },
         {
@@ -207,67 +139,34 @@
             brand: "ZKTeco",
             price: 12500,
             img: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800",
-            description: "High-precision biometric scanner optimized for SHA/SHIF patient registration and verification.",
+            certs: ["FIPS 201", "SHA Ready"],
+            description: "Industry-standard biometric scanner for patient identification. Fully compatible with SHIF/SHA registration portals.",
             specs: {
-                "Sensor Type": "Optical SilkID",
-                "Interface": "USB 2.0 / Plug & Play",
-                "Compliance": "SHA / SHIF Kenya Certified",
-                "Durability": "IP65 Rated Surface"
-            }
-        },
-        {
-            id: 7,
-            category: "Auxiliary",
-            name: "Orthopedic Foldable Wheelchair",
-            brand: "Dagii Pro",
-            price: 18500,
-            img: "https://images.unsplash.com/photo-1597452485669-2c7bb5fef90d?auto=format&fit=crop&q=80&w=800",
-            description: "Reinforced steel frame mobility solution designed for hospital-grade durability and patient comfort.",
-            specs: {
-                "Frame": "Chrome-plated Steel",
-                "Weight Capacity": "120kg",
-                "Tire Type": "Solid Puncture-proof",
-                "Features": "Detachable footrests, Foldable"
+                "Sensor": "SilkID Optical",
+                "Compliance": "SHA/SHIF Kenya",
+                "Resolution": "500 DPI",
+                "Power": "USB 5V DC"
             }
         }
     ];
 
-    let activeInventory = [...inventory];
-    let compareList = [];
-
     function renderGrid(items) {
         const grid = document.getElementById('inventory-grid');
-        if (items.length === 0) {
-            grid.innerHTML = `<div class="col-12 text-center py-5 opacity-50"><i class="fas fa-search display-1 mb-3"></i><h3>No matches found</h3></div>`;
-            return;
-        }
-
         grid.innerHTML = items.map(p => `
-            <div class="col-md-6 col-lg-4 animate__animated animate__fadeIn">
-                <div class="product-card shadow-sm">
-                    <div class="img-wrapper">
-                        <span class="badge-cat">${p.category}</span>
+            <div class="col-md-6 col-lg-4">
+                <div class="product-card d-flex flex-column" onclick="viewDetails(${p.id})">
+                    <div class="img-wrapper position-relative">
                         <img src="${p.img}" alt="${p.name}">
-                        <div class="position-absolute bottom-0 end-0 m-3">
-                            <input type="checkbox" class="btn-check" id="comp-${p.id}" onchange="handleCompare(${p.id}, this)">
-                            <label class="btn btn-sm btn-outline-secondary rounded-pill fw-700" for="comp-${p.id}">Compare</label>
+                        <div class="position-absolute top-0 start-0 m-3 d-flex gap-1">
+                            ${p.certs.map(c => `<span class="cert-icon">${c}</span>`).join('')}
                         </div>
                     </div>
-                    <div class="p-4 flex-grow-1 d-flex flex-direction-column">
-                        <small class="text-uppercase fw-800 text-muted opacity-50">${p.brand}</small>
-                        <h2 class="h5 fw-800 mb-2">${p.name}</h2>
-                        <p class="text-muted small mb-3">${p.description.substring(0, 80)}...</p>
-                        <span class="price-tag">${typeof p.price === 'number' ? 'KSh ' + p.price.toLocaleString() : p.price}</span>
-                        
-                        <div class="mt-auto row g-2">
-                            <div class="col-6">
-                                <button class="btn btn-light w-100 btn-action text-dark" onclick="viewDetails(${p.id})">Details</button>
-                            </div>
-                            <div class="col-6">
-                                <a href="https://wa.me/254790640609?text=Quote for ${p.name}" class="btn btn-success w-100 btn-action">
-                                    <i class="fab fa-whatsapp"></i> Inquiry
-                                </a>
-                            </div>
+                    <div class="p-4">
+                        <small class="text-uppercase fw-800 text-muted mono">${p.brand}</small>
+                        <h3 class="h5 fw-800 mb-3">${p.name}</h3>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="h6 fw-800 mb-0 text-success">${typeof p.price === 'number' ? 'KSh ' + p.price.toLocaleString() : p.price}</span>
+                            <span class="btn btn-outline-dark btn-sm">Technical Sheet</span>
                         </div>
                     </div>
                 </div>
@@ -278,62 +177,60 @@
     function viewDetails(id) {
         const p = inventory.find(x => x.id === id);
         const content = document.getElementById('detailContent');
+        
         content.innerHTML = `
             <div class="row g-0">
-                <div class="col-lg-5 bg-light p-5 d-flex align-items-center">
-                    <img src="${p.img}" class="img-fluid rounded shadow-sm">
+                <div class="col-lg-5 bg-white p-5 border-end">
+                    <img src="${p.img}" class="img-fluid mb-4">
+                    <div class="alert alert-success border-0 small">
+                        <i class="fas fa-truck-moving me-2"></i> Local Delivery: Meru, Isiolo, Nanyuki.
+                    </div>
                 </div>
                 <div class="col-lg-7 p-5">
-                    <button type="button" class="btn-close float-end" data-bs-dismiss="modal"></button>
-                    <span class="badge bg-success-subtle text-success mb-2 px-3 py-2 rounded-pill fw-bold">${p.category}</span>
-                    <h2 class="fw-800 display-6 mb-3">${p.name}</h2>
+                    <div class="d-flex justify-content-between">
+                        <span class="badge bg-dark px-3 mb-3">${p.category}</span>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <h2 class="display-6 fw-800">${p.name}</h2>
                     <p class="text-muted mb-4">${p.description}</p>
                     
-                    <h5 class="fw-800 mb-3 border-bottom pb-2">Technical Specifications</h5>
-                    <div class="row g-3 mb-4">
+                    <h6 class="fw-800 text-uppercase small border-bottom pb-2 mb-3">Technical Specifications</h6>
+                    <div class="row g-3">
                         ${Object.entries(p.specs).map(([k, v]) => `
                             <div class="col-6">
-                                <small class="text-muted d-block">${k}</small>
-                                <span class="fw-700">${v}</span>
+                                <label class="spec-label d-block">${k}</label>
+                                <span class="fw-bold">${v}</span>
                             </div>
                         `).join('')}
                     </div>
-                    <a href="https://wa.me/254790640609" class="btn btn-success btn-lg w-100 rounded-pill fw-800">Request Official Quotation</a>
+
+                    <div class="mt-5 d-grid gap-2">
+                        <a href="https://wa.me/254790640609?text=Quotation Request for ${p.name}" class="btn btn-dark p-3 fw-bold">
+                            <i class="fab fa-whatsapp me-2"></i>Request Official Quotation
+                        </a>
+                        <button class="btn btn-link text-muted small" onclick="window.print()">
+                            <i class="fas fa-print me-2"></i>Download Technical Data Sheet
+                        </button>
+                    </div>
                 </div>
             </div>
         `;
         new bootstrap.Modal(document.getElementById('detailModal')).show();
     }
 
-    function handleCompare(id, el) {
-        if (el.checked) {
-            if (compareList.length >= 3) { el.checked = false; return; }
-            compareList.push(inventory.find(x => x.id === id));
-        } else {
-            compareList = compareList.filter(x => x.id !== id);
-        }
-        
-        const bar = document.getElementById('compare-bar');
-        bar.style.display = compareList.length > 0 ? 'flex' : 'none';
-        document.getElementById('compare-text').innerText = `${compareList.length} items selected for comparison`;
-    }
-
-    function applyFilter(cat, btn) {
-        document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeInventory = cat === 'all' ? [...inventory] : inventory.filter(p => p.category === cat);
-        renderGrid(activeInventory);
+    // Future ICT Integration: Pull safety data for medical equipment
+    async function fetchSafetyAlerts(modelName) {
+        // Placeholder for openFDA API fetch logic
+        console.log("Fetching global safety recalls for:", modelName);
     }
 
     function handleSearch() {
         const q = document.getElementById('searchInput').value.toLowerCase();
-        const filtered = inventory.filter(p => p.name.toLowerCase().includes(q) || p.specs.Technology?.toLowerCase().includes(q));
+        const filtered = inventory.filter(p => p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q));
         renderGrid(filtered);
     }
 
     document.addEventListener('DOMContentLoaded', () => renderGrid(inventory));
 </script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
