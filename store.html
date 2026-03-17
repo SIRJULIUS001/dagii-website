@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional IVD & Medical Solutions | Dagii Medical</title>
+    <title>Professional IVD & Medical Solutions | Dagii Medical Meru</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,215 +15,323 @@
             --primary-green: #1a936f;
             --dark-green: #114b3a;
             --accent-yellow: #ffc107;
-            --light-bg: #f4f9f7;
-            --glass: rgba(255, 255, 255, 0.8);
+            --light-bg: #f8fafc;
+            --white: #ffffff;
         }
 
-        body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); color: #2d3436; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); color: #1e293b; }
 
-        /* Professional Card Styling */
+        /* Professional Card Overhaul */
         .product-card {
             border: none;
             border-radius: 24px;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            background: #ffffff;
+            background: var(--white);
             height: 100%;
             display: flex;
             flex-direction: column;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.04);
         }
 
         .product-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 25px 50px -12px rgba(26, 147, 111, 0.2);
+            box-shadow: 0 30px 60px -12px rgba(26, 147, 111, 0.15);
         }
 
         .img-wrapper {
-            height: 220px;
-            overflow: hidden;
-            border-radius: 24px 24px 0 0;
+            height: 240px;
             position: relative;
+            background: #f1f5f9;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .compare-checkbox {
+        .img-wrapper img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+        }
+
+        .badge-cat {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            z-index: 10;
-            transform: scale(1.3);
-            accent-color: var(--primary-green);
+            top: 20px;
+            left: 20px;
+            background: var(--white);
+            color: var(--dark-green);
+            font-weight: 800;
+            font-size: 0.7rem;
+            padding: 8px 16px;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
         }
 
-        /* Floating Comparison Bar */
+        /* Filter Section Styling */
+        .filter-wrapper {
+            background: var(--white);
+            padding: 10px;
+            border-radius: 100px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            display: inline-flex;
+            gap: 4px;
+        }
+
+        .btn-filter {
+            border: none;
+            background: transparent;
+            padding: 10px 24px;
+            border-radius: 100px;
+            font-weight: 600;
+            color: #64748b;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .btn-filter.active {
+            background: var(--primary-green);
+            color: var(--white);
+            box-shadow: 0 4px 10px rgba(26, 147, 111, 0.3);
+        }
+
+        .price-tag {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .btn-action {
+            border-radius: 14px;
+            padding: 12px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        /* Comparison Tool Bar */
         #compare-bar {
             position: fixed;
-            bottom: 20px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             background: var(--dark-green);
             color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
+            padding: 16px 32px;
+            border-radius: 100px;
             display: none;
-            z-index: 1050;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 1000;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
             align-items: center;
             gap: 20px;
-        }
-
-        .btn-compare-trigger {
-            background: var(--accent-yellow);
-            border: none;
-            color: #000;
-            font-weight: 800;
-            padding: 5px 20px;
-            border-radius: 50px;
         }
     </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
+<nav class="navbar navbar-light bg-white border-bottom sticky-top py-3">
     <div class="container">
-        <a class="navbar-brand fw-800 text-uppercase" href="#" style="color: var(--primary-green); letter-spacing: -1px;">
-            Dagii<span class="text-warning">Medical</span> <small class="fs-6 opacity-50 fw-light">Distributor Portal</small>
+        <a class="navbar-brand fw-800 fs-4 d-flex align-items-center" href="#" style="color: var(--primary-green); letter-spacing: -0.5px;">
+            DAGII <span class="text-warning ms-1">MEDICAL</span>
         </a>
-        <div class="ms-auto">
-            <span id="sync-status" class="badge bg-light text-success border"><i class="fas fa-circle me-1 small"></i> Inventory Live</span>
+        <div class="d-none d-md-block text-muted small fw-600">
+            <i class="fas fa-map-marker-alt text-danger me-1"></i> Serving Meru & Mt. Kenya Region
         </div>
     </div>
 </nav>
 
 <main class="container py-5">
-    <div class="row align-items-center mb-5">
-        <div class="col-lg-6">
-            <h1 class="fw-800 display-4 mb-2" style="color: var(--dark-green);">Equipment <span class="text-success">Catalog</span></h1>
-            <p class="lead text-muted">Authorized precision diagnostics and clinical furniture for Meru's healthcare sector.</p>
-        </div>
-        <div class="col-lg-6 text-lg-end">
-            <div class="filter-container p-2 bg-white rounded-pill shadow-sm d-inline-flex flex-wrap">
-                <button class="btn-filter active" onclick="filterData('all', this)">All Stock</button>
-                <button class="btn-filter" onclick="filterData('Diagnostic', this)">Diagnostics</button>
-                <button class="btn-filter" onclick="filterData('Digital', this)">Digital/SHA</button>
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-800 mb-3" style="color: var(--dark-green);">Diagnostic Solutions</h1>
+        <p class="text-muted lead mx-auto" style="max-width: 600px;">Precision IVD equipment, SHA biometric integration, and clinical furniture with local maintenance support.</p>
+        
+        <div class="row justify-content-center my-5">
+            <div class="col-md-7">
+                <div class="input-group shadow-sm rounded-pill overflow-hidden bg-white p-1">
+                    <span class="input-group-text border-0 bg-white ps-4"><i class="fas fa-search text-muted"></i></span>
+                    <input type="text" id="searchInput" class="form-control border-0 py-3" placeholder="Search by model or application (e.g. 'Chemistry')..." onkeyup="handleSearch()">
+                </div>
             </div>
+        </div>
+
+        <div class="filter-wrapper">
+            <button class="btn-filter active" onclick="applyFilter('all', this)">All Stock</button>
+            <button class="btn-filter" onclick="applyFilter('Diagnostic', this)">Analyzers</button>
+            <button class="btn-filter" onclick="applyFilter('Digital', this)">Digital/SHA</button>
+            <button class="btn-filter" onclick="applyFilter('Auxiliary', this)">Furniture</button>
         </div>
     </div>
 
-    <div class="row mb-4">
-        <div class="col-md-8 mx-auto">
-            <div class="input-group input-group-lg shadow-sm">
-                <span class="input-group-text bg-white border-end-0 rounded-start-pill"><i class="fas fa-search text-muted"></i></span>
-                <input type="text" id="searchInput" class="form-control border-start-0 rounded-end-pill py-3" placeholder="Search by model, brand, or clinical application..." onkeyup="searchProducts()">
-            </div>
-        </div>
-    </div>
-
-    <div class="row g-4" id="store-front">
-        </div>
+    <div class="row g-4" id="inventory-grid"></div>
 </main>
 
 <div id="compare-bar" class="animate__animated animate__slideInUp">
-    <span id="compare-count">0 items selected</span>
-    <button class="btn-compare-trigger" onclick="openComparison()">Compare Now</button>
+    <span id="compare-text" class="fw-600">0 items selected for comparison</span>
+    <button class="btn btn-warning rounded-pill px-4 fw-800" onclick="showComparisonModal()">Compare Now</button>
 </div>
 
-<div class="modal fade" id="compareModal" tabindex="-1">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content border-0" style="border-radius: 28px;">
-            <div class="modal-body p-5" id="compareBody">
-                </div>
+<div class="modal fade" id="detailModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg" style="border-radius: 28px;">
+            <div class="modal-body p-0" id="detailContent"></div>
         </div>
     </div>
 </div>
 
 <script>
-    const products = [
-        { id: 1, category: "Diagnostic", name: "Seamaty SMT-120V", price: 0, brand: "Seamaty", img: "https://images.unsplash.com/photo-1579152276503-68fe28ec89a1?q=80&w=800", specs: { "Throughput": "35 parameters / 12m", "Sample": "100ul Blood", "Compliance": "ISO 13485" }},
-        { id: 2, category: "Diagnostic", name: "Seamaty SMT-50", price: 0, brand: "Seamaty", img: "https://images.unsplash.com/photo-1579152171543-f40a16defd1b?q=80&w=800", specs: { "Throughput": "60 samples / hr", "Screen": "10.4-inch Touch", "Compliance": "CE Marked" }},
-        { id: 5, category: "Digital", name: "ZKTeco Biometric", price: 12500, brand: "ZKTeco", img: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=800", specs: { "Sensor": "Optical SILK ID", "Interface": "USB 2.0", "Compatibility": "SHA/SHIF Portal" }}
+    const inventory = [
+        {
+            id: 1,
+            category: "Diagnostic",
+            name: "Seamaty SMT-120V",
+            brand: "Seamaty",
+            price: "Request Quote",
+            img: "https://images.unsplash.com/photo-1579152276503-68fe28ec89a1?auto=format&fit=crop&q=80&w=800",
+            description: "Fully automated chemistry analyzer utilizing microfluidic technology for rapid POCT diagnostics.",
+            specs: {
+                "Technology": "Automated Microfluidics",
+                "Sample Size": "100ul Whole Blood/Serum",
+                "Time to Result": "12 Minutes",
+                "Parameters": "Up to 35 simultaneously",
+                "Connectivity": "Built-in Wi-Fi / LIS Compatible"
+            }
+        },
+        {
+            id: 5,
+            category: "Digital",
+            name: "ZKTeco Pro-ID Scanner",
+            brand: "ZKTeco",
+            price: 12500,
+            img: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800",
+            description: "High-precision biometric scanner optimized for SHA/SHIF patient registration and verification.",
+            specs: {
+                "Sensor Type": "Optical SilkID",
+                "Interface": "USB 2.0 / Plug & Play",
+                "Compliance": "SHA / SHIF Kenya Certified",
+                "Durability": "IP65 Rated Surface"
+            }
+        },
+        {
+            id: 7,
+            category: "Auxiliary",
+            name: "Orthopedic Foldable Wheelchair",
+            brand: "Dagii Pro",
+            price: 18500,
+            img: "https://images.unsplash.com/photo-1597452485669-2c7bb5fef90d?auto=format&fit=crop&q=80&w=800",
+            description: "Reinforced steel frame mobility solution designed for hospital-grade durability and patient comfort.",
+            specs: {
+                "Frame": "Chrome-plated Steel",
+                "Weight Capacity": "120kg",
+                "Tire Type": "Solid Puncture-proof",
+                "Features": "Detachable footrests, Foldable"
+            }
+        }
     ];
 
+    let activeInventory = [...inventory];
     let compareList = [];
 
-    function renderProducts(items) {
-        const container = document.getElementById('store-front');
+    function renderGrid(items) {
+        const grid = document.getElementById('inventory-grid');
         if (items.length === 0) {
-            container.innerHTML = `<div class="col-12 text-center py-5 opacity-50"><i class="fas fa-box-open display-1 mb-3"></i><h4>No inventory matches found</h4></div>`;
+            grid.innerHTML = `<div class="col-12 text-center py-5 opacity-50"><i class="fas fa-search display-1 mb-3"></i><h3>No matches found</h3></div>`;
             return;
         }
 
-        container.innerHTML = items.map(p => `
+        grid.innerHTML = items.map(p => `
             <div class="col-md-6 col-lg-4 animate__animated animate__fadeIn">
-                <article class="product-card p-2 shadow-sm">
+                <div class="product-card shadow-sm">
                     <div class="img-wrapper">
-                        <input type="checkbox" class="compare-checkbox" onchange="toggleCompare(${p.id}, this)">
-                        <img src="${p.img}" alt="${p.name}" class="img-fluid" loading="lazy">
-                        <span class="badge bg-white text-dark position-absolute bottom-0 start-0 m-3 shadow-sm">${p.brand}</span>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="h5 fw-bold mb-1">${p.name}</h3>
-                        <p class="text-success fw-bold fs-5 mb-3">${p.price === 0 ? 'Request Quote' : 'KSh ' + p.price.toLocaleString()}</p>
-                        <div class="d-grid gap-2">
-                            <a href="https://wa.me/254790640609?text=I'm interested in the ${p.name}" class="btn btn-success rounded-pill fw-bold">Order on WhatsApp</a>
+                        <span class="badge-cat">${p.category}</span>
+                        <img src="${p.img}" alt="${p.name}">
+                        <div class="position-absolute bottom-0 end-0 m-3">
+                            <input type="checkbox" class="btn-check" id="comp-${p.id}" onchange="handleCompare(${p.id}, this)">
+                            <label class="btn btn-sm btn-outline-secondary rounded-pill fw-700" for="comp-${p.id}">Compare</label>
                         </div>
                     </div>
-                </article>
+                    <div class="p-4 flex-grow-1 d-flex flex-direction-column">
+                        <small class="text-uppercase fw-800 text-muted opacity-50">${p.brand}</small>
+                        <h2 class="h5 fw-800 mb-2">${p.name}</h2>
+                        <p class="text-muted small mb-3">${p.description.substring(0, 80)}...</p>
+                        <span class="price-tag">${typeof p.price === 'number' ? 'KSh ' + p.price.toLocaleString() : p.price}</span>
+                        
+                        <div class="mt-auto row g-2">
+                            <div class="col-6">
+                                <button class="btn btn-light w-100 btn-action text-dark" onclick="viewDetails(${p.id})">Details</button>
+                            </div>
+                            <div class="col-6">
+                                <a href="https://wa.me/254790640609?text=Quote for ${p.name}" class="btn btn-success w-100 btn-action">
+                                    <i class="fab fa-whatsapp"></i> Inquiry
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         `).join('');
     }
 
-    function toggleCompare(id, checkbox) {
-        if (checkbox.checked) {
-            if (compareList.length >= 3) {
-                alert("You can compare up to 3 items.");
-                checkbox.checked = false;
-                return;
-            }
-            compareList.push(products.find(p => p.id === id));
+    function viewDetails(id) {
+        const p = inventory.find(x => x.id === id);
+        const content = document.getElementById('detailContent');
+        content.innerHTML = `
+            <div class="row g-0">
+                <div class="col-lg-5 bg-light p-5 d-flex align-items-center">
+                    <img src="${p.img}" class="img-fluid rounded shadow-sm">
+                </div>
+                <div class="col-lg-7 p-5">
+                    <button type="button" class="btn-close float-end" data-bs-dismiss="modal"></button>
+                    <span class="badge bg-success-subtle text-success mb-2 px-3 py-2 rounded-pill fw-bold">${p.category}</span>
+                    <h2 class="fw-800 display-6 mb-3">${p.name}</h2>
+                    <p class="text-muted mb-4">${p.description}</p>
+                    
+                    <h5 class="fw-800 mb-3 border-bottom pb-2">Technical Specifications</h5>
+                    <div class="row g-3 mb-4">
+                        ${Object.entries(p.specs).map(([k, v]) => `
+                            <div class="col-6">
+                                <small class="text-muted d-block">${k}</small>
+                                <span class="fw-700">${v}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <a href="https://wa.me/254790640609" class="btn btn-success btn-lg w-100 rounded-pill fw-800">Request Official Quotation</a>
+                </div>
+            </div>
+        `;
+        new bootstrap.Modal(document.getElementById('detailModal')).show();
+    }
+
+    function handleCompare(id, el) {
+        if (el.checked) {
+            if (compareList.length >= 3) { el.checked = false; return; }
+            compareList.push(inventory.find(x => x.id === id));
         } else {
-            compareList = compareList.filter(p => p.id !== id);
+            compareList = compareList.filter(x => x.id !== id);
         }
         
         const bar = document.getElementById('compare-bar');
-        bar.style.display = compareList.length > 1 ? 'flex' : 'none';
-        document.getElementById('compare-count').innerText = `${compareList.length} items selected`;
+        bar.style.display = compareList.length > 0 ? 'flex' : 'none';
+        document.getElementById('compare-text').innerText = `${compareList.length} items selected for comparison`;
     }
 
-    function openComparison() {
-        const body = document.getElementById('compareBody');
-        const specs = [...new Set(compareList.flatMap(p => Object.keys(p.specs)))];
-
-        body.innerHTML = `
-            <h2 class="fw-800 mb-4">Technical Comparison</h2>
-            <div class="table-responsive">
-                <table class="table table-borderless">
-                    <thead>
-                        <tr>
-                            <th>Specification</th>
-                            ${compareList.map(p => `<th class="text-center"><img src="${p.img}" width="80" class="rounded mb-2"><br>${p.name}</th>`).join('')}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${specs.map(s => `
-                            <tr class="border-top">
-                                <td class="fw-bold text-muted">${s}</td>
-                                ${compareList.map(p => `<td class="text-center">${p.specs[s] || '—'}</td>`).join('')}
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            </div>
-            <button class="btn btn-dark rounded-pill mt-4" data-bs-dismiss="modal">Close Comparison</button>
-        `;
-        new bootstrap.Modal(document.getElementById('compareModal')).show();
+    function applyFilter(cat, btn) {
+        document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeInventory = cat === 'all' ? [...inventory] : inventory.filter(p => p.category === cat);
+        renderGrid(activeInventory);
     }
 
-    // Reuse your existing filter/search logic but call this render
-    function searchProducts() {
-        const query = document.getElementById('searchInput').value.toLowerCase();
-        renderProducts(products.filter(p => p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query)));
+    function handleSearch() {
+        const q = document.getElementById('searchInput').value.toLowerCase();
+        const filtered = inventory.filter(p => p.name.toLowerCase().includes(q) || p.specs.Technology?.toLowerCase().includes(q));
+        renderGrid(filtered);
     }
 
-    document.addEventListener('DOMContentLoaded', () => renderProducts(products));
+    document.addEventListener('DOMContentLoaded', () => renderGrid(inventory));
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
