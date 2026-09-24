@@ -41,3 +41,32 @@ body {
     height: 480px;
     object-fit: contain;
 }
+
+/* =========================================================
+   EQUIPMENT CATEGORIES
+========================================================= */
+
+.category-card {
+    background: #ffffff;
+    border: 1px solid #e8eef2;
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.75rem 2rem rgba(11, 79, 113, 0.08);
+}
+
+.category-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    background: #eef7fa;
+    color: var(--dagii-blue);
+    font-size: 1.4rem;
+}
