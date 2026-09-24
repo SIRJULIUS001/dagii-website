@@ -100,3 +100,19 @@ body {
     height: 100%;
     object-fit: contain;
 }
+
+/* =========================================================
+   HEALTHCARE SOLUTIONS
+========================================================= */
+
+.solution-visual {
+    background: #f5f9fc;
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+.solution-visual img {
+    width: 100%;
+    min-height: 420px;
+    object-fit: cover;
+}
