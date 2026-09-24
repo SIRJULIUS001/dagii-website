@@ -132,3 +132,139 @@ body {
     object-fit: cover;
     display: block;
 }
+/* =========================
+   QUOTE SECTION
+========================= */
+
+.quote-card {
+    background: #ffffff;
+    border: 1px solid #e3ebef;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+/* Left information panel */
+
+.quote-info {
+    height: 100%;
+    padding: 2.5rem;
+    background: var(--dagii-blue);
+    color: #ffffff;
+}
+
+.quote-info > span {
+    color: #cfe8ee;
+}
+
+.quote-info h3 {
+    color: #ffffff;
+}
+
+.quote-info p {
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.7;
+}
+
+
+/* Contact details */
+
+.quote-contact {
+    margin-top: 2rem;
+}
+
+.quote-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.quote-contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.quote-contact-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.quote-contact-icon i {
+    font-size: 1.1rem;
+}
+
+.quote-contact-item small {
+    display: block;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 2px;
+}
+
+.quote-contact-item a,
+.quote-contact-item span {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.quote-contact-item a:hover {
+    text-decoration: underline;
+}
+
+
+/* Right form */
+
+.quote-form-wrapper {
+    padding: 2.5rem;
+}
+
+.quote-form-wrapper .form-label {
+    font-weight: 600;
+    color: #172b3a;
+    margin-bottom: 0.5rem;
+}
+
+.quote-form-wrapper .form-control,
+.quote-form-wrapper .form-select {
+    min-height: 48px;
+    border-color: #d9e3e8;
+    border-radius: 0.5rem;
+}
+
+.quote-form-wrapper textarea.form-control {
+    min-height: auto;
+}
+
+.quote-form-wrapper .form-control:focus,
+.quote-form-wrapper .form-select:focus {
+    border-color: var(--dagii-blue);
+    box-shadow: 0 0 0 0.2rem rgba(11, 79, 113, 0.1);
+}
+
+
+/* Mobile */
+
+@media (max-width: 991.98px) {
+
+    .quote-info {
+        padding: 2rem;
+    }
+
+    .quote-form-wrapper {
+        padding: 2rem;
+    }
+
+}
+
+@media (max-width: 575.98px) {
+
+    .quote-info,
+    .quote-form-wrapper {
+        padding: 1.5rem;
+    }
+
+}
