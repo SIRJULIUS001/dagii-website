@@ -353,3 +353,34 @@ body {
     }
 
 }
+/* =========================
+   SOCIAL MEDIA
+========================= */
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.social-icon i {
+    font-size: 1rem;
+}
+
+.social-icon:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.5);
+}
