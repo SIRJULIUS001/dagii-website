@@ -71,6 +71,84 @@ body {
     font-size: 1.4rem;
 }
 /* =========================================================
+   NAVBAR SCROLL
+========================================================= */
+
+.navbar {
+    transition: box-shadow 0.25s ease, padding 0.25s ease;
+}
+
+.navbar-scrolled {
+    box-shadow: 0 4px 18px rgba(11, 79, 113, 0.08);
+}
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+.navbar .nav-link {
+    position: relative;
+    color: #172b3a;
+}
+
+.navbar .nav-link.active {
+    color: var(--dagii-blue);
+    font-weight: 600;
+}
+
+.navbar .nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 0;
+    height: 2px;
+    background: var(--dagii-blue);
+    border-radius: 2px;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .scroll-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .navbar {
+        transition: none;
+    }
+
+}
+/* =========================================================
    FEATURED PRODUCTS
 ========================================================= */
 
