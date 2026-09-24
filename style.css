@@ -431,3 +431,18 @@ body {
     }
 
 }
+.apparel-card {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #e5edf2;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    height: 100%;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.apparel-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(11, 79, 113, 0.10);
+}
